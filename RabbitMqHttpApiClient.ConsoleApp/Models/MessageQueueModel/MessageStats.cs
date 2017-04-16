@@ -1,9 +1,13 @@
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
 
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.MessageQueueModel
 {
     public class MessageStats
     {
+        public int disk_reads { get; set; }
+        public RateDetails disk_reads_details { get; set; }
+        public int disk_writes { get; set; }
+        public RateDetails disk_writes_details { get; set; }
         public int deliver { get; set; }
         public RateDetails deliver_details { get; set; }
         public int deliver_no_ack { get; set; }

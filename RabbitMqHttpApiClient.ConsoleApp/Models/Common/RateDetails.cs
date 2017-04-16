@@ -1,4 +1,4 @@
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.Common
 {
     public class RateDetails
     {

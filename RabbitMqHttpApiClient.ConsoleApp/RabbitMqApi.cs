@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models;
+using RabbitMqHttpApiClient.ConsoleApp.Models.MessageQueueModel;
+using RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel;
-using RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessage;
+using RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessageModel;
 
 namespace RabbitMqHttpApiClient.ConsoleApp
 {
@@ -27,6 +29,11 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             Http.BaseAddress = new Uri(rabbitMqUrl);
             Http.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Basic", basicAuthHeader);
+        }
+
+        public async Task<T> DoGetCall<T>(string path)
+        {
+            return await DoCall<T>(path, HttpMethod.Get);
         }
 
         public async Task<T> DoCall<T>(string path, HttpMethod method, dynamic body = null)
@@ -62,15 +69,42 @@ namespace RabbitMqHttpApiClient.ConsoleApp
         /// </summary>
         public async Task<Overview> GetOverview()
         {
-            return await DoCall<Overview>("/api/overview", HttpMethod.Get);
+            return await DoGetCall<Overview>("/api/overview");
         }
 
+        /// <summary>
+        /// Name identifying this RabbitMQ cluster.
+        /// </summary>
+        public async Task<string> GetClusterName()
+        {
+            var response = await DoGetCall<Cluster>("/api/cluster-name");
+            return response.name;
+        }
+
+        public async Task<IEnumerable<Node>> GetNodes()
+        {
+            return await DoGetCall<IEnumerable<Node>>("/api/nodes");
+        }
+
+        /// <summary>
+        /// A list of all queues.
+        /// </summary>
         public async Task<IEnumerable<MessageQueue>> GetQueues()
         {
-            return await DoCall<IEnumerable<MessageQueue>>("/api/queues", HttpMethod.Get);
+            return await DoGetCall<IEnumerable<MessageQueue>>("/api/queues");
         }
 
-        public async Task<PublishMessageResponse> PublishMessage(
+        /// <summary>
+        /// Publish a message to a given exchange. 
+        /// </summary>
+        /// <param name="virtualHost"></param>
+        /// <param name="exchangeName"></param>
+        /// <param name="routingKey">binding key</param>
+        /// <param name="payload">message data</param>
+        /// <param name="payloadEncoding">The payload_encoding key should be either "string" (in which case the payload will be taken to be the UTF-8 encoding of the payload field) or "base64" (in which case the payload field is taken to be base64 encoded).</param>
+        /// <param name="properties"></param>
+        /// <returns>routed will be true if the message was sent to at least one queue.</returns>
+        public async Task<bool> PublishMessage(
             string virtualHost, string exchangeName, string routingKey,
             dynamic payload, string payloadEncoding = "string", Properties properties = null)
         {
@@ -85,8 +119,10 @@ namespace RabbitMqHttpApiClient.ConsoleApp
                 payload_encoding = payloadEncoding
             };
 
-            return await DoCall<PublishMessageResponse>(
+            var response = await DoCall<PublishMessageResponse>(
                 $"/api/exchanges/{virtualHost}/{exchangeName}/publish", HttpMethod.Post, request);
+
+            return response.routed;
         }
     }
 }

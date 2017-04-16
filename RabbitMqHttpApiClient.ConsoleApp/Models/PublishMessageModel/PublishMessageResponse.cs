@@ -1,4 +1,4 @@
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessage
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessageModel
 {
     public class PublishMessageResponse
     {

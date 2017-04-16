@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel
 {

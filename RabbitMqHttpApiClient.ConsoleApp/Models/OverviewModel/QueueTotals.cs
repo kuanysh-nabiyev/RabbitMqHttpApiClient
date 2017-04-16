@@ -1,3 +1,5 @@
+using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
+
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel
 {
     public class QueueTotals
