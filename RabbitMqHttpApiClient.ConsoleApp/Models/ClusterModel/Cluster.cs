@@ -1,4 +1,4 @@
-namespace RabbitMqHttpApiClient.ConsoleApp.Models
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.ClusterModel
 {
     public class Cluster
     {

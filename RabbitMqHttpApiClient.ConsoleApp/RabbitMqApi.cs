@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models;
+using RabbitMqHttpApiClient.ConsoleApp.Models.ClusterModel;
+using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
 using RabbitMqHttpApiClient.ConsoleApp.Models.MessageQueueModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel;
@@ -81,9 +83,27 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             return response.name;
         }
 
+        /// <summary>
+        /// A list of nodes in the RabbitMQ cluster.
+        /// </summary>
         public async Task<IEnumerable<Node>> GetNodes()
         {
             return await DoGetCall<IEnumerable<Node>>("/api/nodes");
+        }
+
+        /// <summary>
+        /// An individual node in the RabbitMQ cluster
+        /// </summary>
+        /// <param name="nodeName">node name</param>
+        /// <param name="withMemory">To get memory statistics</param>
+        /// <param name="withBinary">to get a breakdown of binary memory use (may be expensive if there are many small binaries in the system)</param>
+        /// <returns>Node details</returns>
+        public async Task<Node> GetNode(string nodeName, bool withMemory = false, bool withBinary = false)
+        {
+            string memory = withMemory.ToString().ToLowerInvariant();
+            string binary = withBinary.ToString().ToLowerInvariant();
+            var path = $"/api/nodes/{nodeName}?memory={memory}&binary={binary}";
+            return await DoGetCall<Node>(path);
         }
 
         /// <summary>

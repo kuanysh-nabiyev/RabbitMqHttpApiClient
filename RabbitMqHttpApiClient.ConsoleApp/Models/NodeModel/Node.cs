@@ -5,7 +5,9 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel
 {
     public class Node
     {
-        public List<object> cluster_links { get; set; }
+        public NodeBinary binary { get; set; }
+        public NodeMemory memory { get; set; }
+        public IEnumerable<object> cluster_links { get; set; }
         public int mem_used { get; set; }
         public RateDetails mem_used_details { get; set; }
         public int fd_used { get; set; }
@@ -62,7 +64,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel
         public RateDetails io_file_handle_open_attempt_count_details { get; set; }
         public double io_file_handle_open_attempt_avg_time { get; set; }
         public RateDetails io_file_handle_open_attempt_avg_time_details { get; set; }
-        public List<object> partitions { get; set; }
+        public IEnumerable<object> partitions { get; set; }
         public string os_pid { get; set; }
         public int fd_total { get; set; }
         public int sockets_total { get; set; }
@@ -89,5 +91,4 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel
         public string type { get; set; }
         public bool running { get; set; }
     }
-
 }
