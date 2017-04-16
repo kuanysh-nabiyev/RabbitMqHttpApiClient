@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models;
 using RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel;
+using RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessage;
 
 namespace RabbitMqHttpApiClient.ConsoleApp
 {
@@ -74,9 +75,9 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             dynamic payload, string payloadEncoding = "string", Properties properties = null)
         {
             if (virtualHost == "/") virtualHost = "%2F";
-            if (exchangeName == String.Empty) exchangeName = "isez";
+            if (exchangeName == String.Empty) exchangeName = routingKey;
 
-            var request = new PublishMessageRequest()
+            var request = new PublishMessageRequest
             {
                 payload = JsonConvert.SerializeObject(payload),
                 routing_key = routingKey,
@@ -88,36 +89,4 @@ namespace RabbitMqHttpApiClient.ConsoleApp
                 $"/api/exchanges/{virtualHost}/{exchangeName}/publish", HttpMethod.Post, request);
         }
     }
-
-    public enum DeliveryMode
-    {
-        NonPersistent = 1,
-        Persistent = 2
-    }
-
-    public class PublishMessageRequest
-    {
-        public string routing_key { get; set; }
-        public dynamic payload { get; set; }
-
-        public Properties properties { get; set; }
-        public string payload_encoding { get; set; }
-    }
-
-    public class Properties
-    {
-        public string content_type => "application/json";
-    }
-
-    public class PublishMessageResponse
-    {
-        public bool routed { get; set; }
-    }
-
-    public class RequestErrorResponse
-    {
-        public string error { get; set; }
-        public string reason { get; set; }
-    }
-
 }
