@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ClusterModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
+using RabbitMqHttpApiClient.ConsoleApp.Models.ExtensionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.MessageQueueModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel;
@@ -91,6 +92,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             return await DoGetCall<IEnumerable<Node>>("/api/nodes");
         }
 
+
         /// <summary>
         /// An individual node in the RabbitMQ cluster
         /// </summary>
@@ -104,6 +106,14 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             string binary = withBinary.ToString().ToLowerInvariant();
             var path = $"/api/nodes/{nodeName}?memory={memory}&binary={binary}";
             return await DoGetCall<Node>(path);
+        }
+
+        /// <summary>
+        /// A list of extensions to the management plugin.
+        /// </summary>
+        public async Task<IEnumerable<ManagementPluginExtension>> GetExtensions()
+        {
+            return await DoGetCall<IEnumerable<ManagementPluginExtension>>("/api/extensions");
         }
 
         /// <summary>
