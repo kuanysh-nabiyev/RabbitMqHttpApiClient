@@ -5,18 +5,14 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using RabbitMqHttpApiClient.ConsoleApp.Models;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ClusterModel;
-using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
-using RabbitMqHttpApiClient.ConsoleApp.Models.ConnectionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ExtensionModel;
-using RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessageModel;
 using Queue = RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel.Queue;
 
-namespace RabbitMqHttpApiClient.ConsoleApp
+namespace RabbitMqHttpApiClient.ConsoleApp.API
 {
     public partial class RabbitMqApi
     {

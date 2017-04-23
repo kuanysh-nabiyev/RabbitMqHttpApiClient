@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel;
 
-namespace RabbitMqHttpApiClient.ConsoleApp
+namespace RabbitMqHttpApiClient.ConsoleApp.API
 {
     public partial class RabbitMqApi
     {

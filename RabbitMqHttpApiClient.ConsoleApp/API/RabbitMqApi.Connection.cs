@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ConnectionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Utils;
 
-namespace RabbitMqHttpApiClient.ConsoleApp
+namespace RabbitMqHttpApiClient.ConsoleApp.API
 {
     public partial class RabbitMqApi
     {
