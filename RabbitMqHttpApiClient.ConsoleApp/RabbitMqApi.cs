@@ -18,7 +18,7 @@ using Queue = RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel.Queue;
 
 namespace RabbitMqHttpApiClient.ConsoleApp
 {
-    public class RabbitMqApi
+    public partial class RabbitMqApi
     {
         private static readonly HttpClient Http;
 
@@ -87,29 +87,6 @@ namespace RabbitMqHttpApiClient.ConsoleApp
         }
 
         /// <summary>
-        /// A list of nodes in the RabbitMQ cluster.
-        /// </summary>
-        public async Task<IEnumerable<Node>> GetNodes()
-        {
-            return await DoGetCall<IEnumerable<Node>>("/api/nodes");
-        }
-
-        /// <summary>
-        /// An individual node in the RabbitMQ cluster
-        /// </summary>
-        /// <param name="nodeName">node name</param>
-        /// <param name="withMemory">To get memory statistics</param>
-        /// <param name="withBinary">to get a breakdown of binary memory use (may be expensive if there are many small binaries in the system)</param>
-        /// <returns>Node details</returns>
-        public async Task<Node> GetNode(string nodeName, bool withMemory = false, bool withBinary = false)
-        {
-            string memory = withMemory.ToString().ToLowerInvariant();
-            string binary = withBinary.ToString().ToLowerInvariant();
-            var path = $"/api/nodes/{nodeName}?memory={memory}&binary={binary}";
-            return await DoGetCall<Node>(path);
-        }
-
-        /// <summary>
         /// A list of extensions to the management plugin.
         /// </summary>
         public async Task<IEnumerable<ManagementPluginExtension>> GetExtensions()
@@ -132,23 +109,6 @@ namespace RabbitMqHttpApiClient.ConsoleApp
         {
             if (virtualHost == "/") virtualHost = "%2F";
             return await DoGetCall<GetDefinitionByVhostResponse>($"/api/definitions/{virtualHost}");
-        }
-
-        /// <summary>
-        /// A list of all open connections.
-        /// </summary>
-        public async Task<IEnumerable<Connection>> GetConnections()
-        {
-            return await DoGetCall<IEnumerable<Connection>>("/api/connections");
-        }
-
-        /// <summary>
-        /// A list of all open connections in a specific vhost.
-        /// </summary>
-        public async Task<IEnumerable<Connection>> GetConnectionsByVhost(string virtualHost)
-        {
-            if (virtualHost == "/") virtualHost = "%2F";
-            return await DoGetCall<IEnumerable<Connection>>($"/api/vhosts/{virtualHost}/connections");
         }
 
         /// <summary>
