@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ConnectionModel;
+using RabbitMqHttpApiClient.ConsoleApp.Utils;
 
 namespace RabbitMqHttpApiClient.ConsoleApp
 {
@@ -21,6 +23,14 @@ namespace RabbitMqHttpApiClient.ConsoleApp
         {
             if (virtualHost == "/") virtualHost = "%2F";
             return await DoGetCall<IEnumerable<Connection>>($"/api/vhosts/{virtualHost}/connections");
+        }
+
+		/// <summary>
+        /// An individual connection by connection name
+        /// </summary>
+        public async Task<Connection> GetConnection(string connectionName)
+		{
+            return await DoGetCall<Connection>($"/api/connections/{connectionName.Encode()}");
         }
     }
 }
