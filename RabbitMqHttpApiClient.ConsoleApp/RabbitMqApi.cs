@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ClusterModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
+using RabbitMqHttpApiClient.ConsoleApp.Models.ConnectionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ExtensionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel;
@@ -131,6 +132,23 @@ namespace RabbitMqHttpApiClient.ConsoleApp
         {
             if (virtualHost == "/") virtualHost = "%2F";
             return await DoGetCall<GetDefinitionByVhostResponse>($"/api/definitions/{virtualHost}");
+        }
+
+        /// <summary>
+        /// A list of all open connections.
+        /// </summary>
+        public async Task<IEnumerable<Connection>> GetConnections()
+        {
+            return await DoGetCall<IEnumerable<Connection>>("/api/connections");
+        }
+
+        /// <summary>
+        /// A list of all open connections in a specific vhost.
+        /// </summary>
+        public async Task<IEnumerable<Connection>> GetConnectionsByVhost(string virtualHost)
+        {
+            if (virtualHost == "/") virtualHost = "%2F";
+            return await DoGetCall<IEnumerable<Connection>>($"/api/vhosts/{virtualHost}/connections");
         }
 
         /// <summary>
