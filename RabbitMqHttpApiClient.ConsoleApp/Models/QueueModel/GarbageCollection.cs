@@ -1,4 +1,4 @@
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.MessageQueueModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel
 {
     public class GarbageCollection
     {

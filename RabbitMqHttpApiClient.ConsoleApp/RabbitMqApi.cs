@@ -8,11 +8,12 @@ using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ClusterModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
+using RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ExtensionModel;
-using RabbitMqHttpApiClient.ConsoleApp.Models.MessageQueueModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessageModel;
+using Queue = RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel.Queue;
 
 namespace RabbitMqHttpApiClient.ConsoleApp
 {
@@ -92,7 +93,6 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             return await DoGetCall<IEnumerable<Node>>("/api/nodes");
         }
 
-
         /// <summary>
         /// An individual node in the RabbitMQ cluster
         /// </summary>
@@ -117,11 +117,28 @@ namespace RabbitMqHttpApiClient.ConsoleApp
         }
 
         /// <summary>
+        /// The server definitions - exchanges, queues, bindings, users, virtual hosts, permissions and parameters. Everything apart from messages.
+        /// </summary>
+        public async Task<GetDefinitionsResponse> GetDefinitions()
+        {
+            return await DoGetCall<GetDefinitionsResponse>("/api/definitions");
+        }
+
+        /// <summary>
+        /// The server definitions for a given virtual host - exchanges, queues, bindings and policies. 
+        /// </summary>
+        public async Task<GetDefinitionByVhostResponse> GetDefinitionByVhost(string virtualHost)
+        {
+            if (virtualHost == "/") virtualHost = "%2F";
+            return await DoGetCall<GetDefinitionByVhostResponse>($"/api/definitions/{virtualHost}");
+        }
+
+        /// <summary>
         /// A list of all queues.
         /// </summary>
-        public async Task<IEnumerable<MessageQueue>> GetQueues()
+        public async Task<IEnumerable<Queue>> GetQueues()
         {
-            return await DoGetCall<IEnumerable<MessageQueue>>("/api/queues");
+            return await DoGetCall<IEnumerable<Queue>>("/api/queues");
         }
 
         /// <summary>

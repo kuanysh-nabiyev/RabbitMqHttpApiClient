@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.MessageQueueModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel
 {
     public class BackingQueueStatus
     {

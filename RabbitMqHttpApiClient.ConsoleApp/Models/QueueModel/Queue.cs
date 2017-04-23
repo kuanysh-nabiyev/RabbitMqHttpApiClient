@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
 
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.MessageQueueModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel
 {
-    public class MessageQueue
+    public class Queue
     {
         public string name { get; set; }
         public string vhost { get; set; }
