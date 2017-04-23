@@ -4,7 +4,7 @@ using RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.API
 {
-    public partial class RabbitMqApi
+    public partial class RabbitMqApi//.Node
     {
         /// <summary>
         /// A list of nodes in the RabbitMQ cluster.

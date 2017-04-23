@@ -5,7 +5,7 @@ using RabbitMqHttpApiClient.ConsoleApp.Utils;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.API
 {
-    public partial class RabbitMqApi
+    public partial class RabbitMqApi//.Connection
     {
 		/// <summary>
         /// A list of all open connections.

@@ -66,48 +66,6 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
         }
 
         /// <summary>
-        /// Various random bits of information that describe the whole system.
-        /// </summary>
-        public async Task<Overview> GetOverview()
-        {
-            return await DoGetCall<Overview>("/api/overview");
-        }
-
-        /// <summary>
-        /// Name identifying this RabbitMQ cluster.
-        /// </summary>
-        public async Task<string> GetClusterName()
-        {
-            var response = await DoGetCall<Cluster>("/api/cluster-name");
-            return response.name;
-        }
-
-        /// <summary>
-        /// A list of extensions to the management plugin.
-        /// </summary>
-        public async Task<IEnumerable<ManagementPluginExtension>> GetExtensions()
-        {
-            return await DoGetCall<IEnumerable<ManagementPluginExtension>>("/api/extensions");
-        }
-
-        /// <summary>
-        /// The server definitions - exchanges, queues, bindings, users, virtual hosts, permissions and parameters. Everything apart from messages.
-        /// </summary>
-        public async Task<GetDefinitionsResponse> GetDefinitions()
-        {
-            return await DoGetCall<GetDefinitionsResponse>("/api/definitions");
-        }
-
-        /// <summary>
-        /// The server definitions for a given virtual host - exchanges, queues, bindings and policies. 
-        /// </summary>
-        public async Task<GetDefinitionByVhostResponse> GetDefinitionByVhost(string virtualHost)
-        {
-            if (virtualHost == "/") virtualHost = "%2F";
-            return await DoGetCall<GetDefinitionByVhostResponse>($"/api/definitions/{virtualHost}");
-        }
-
-        /// <summary>
         /// A list of all queues.
         /// </summary>
         public async Task<IEnumerable<Queue>> GetQueues()
