@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using RabbitMqHttpApiClient.ConsoleApp.API;
 
 namespace RabbitMqHttpApiClient.ConsoleApp
 {
@@ -25,7 +26,11 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetDefinitionByVhost("/").Result;
             //var connections = rabbitMqApi.GetConnections().Result;
             //var result = rabbitMqApi.GetConnectionsByVhost("/").Result;
-            var result = rabbitMqApi.GetConnection("192.168.4.10:53094 -> 192.168.4.135:5672").Result;
+            //var result = rabbitMqApi.GetConnection("192.168.4.10:53094 -> 192.168.4.135:5672").Result;
+            //var result = rabbitMqApi.GetChannel("192.168.4.10:53094 -> 192.168.4.135:5672 (1)").Result;
+            //var result = rabbitMqApi.GetChannels().Result;
+            //var result = rabbitMqApi.GetChannelsByVhost("/").Result;
+            //var result = rabbitMqApi.GetChannelsByConnection("192.168.4.10:53094 -> 192.168.4.135:5672").Result;
         }
 
         private class RequestApprovedEvent

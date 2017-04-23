@@ -10,6 +10,7 @@ using RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ExtensionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessageModel;
+using RabbitMqHttpApiClient.ConsoleApp.Utils;
 using Queue = RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel.Queue;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.API
