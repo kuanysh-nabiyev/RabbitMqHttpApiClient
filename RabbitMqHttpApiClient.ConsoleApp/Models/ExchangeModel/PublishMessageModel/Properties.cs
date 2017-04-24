@@ -1,4 +1,4 @@
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessageModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.ExchangeModel.PublishMessageModel
 {
     public class Properties
     {

@@ -9,7 +9,6 @@ using RabbitMqHttpApiClient.ConsoleApp.Models.ClusterModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.ExtensionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel;
-using RabbitMqHttpApiClient.ConsoleApp.Models.PublishMessageModel;
 using RabbitMqHttpApiClient.ConsoleApp.Utils;
 using Queue = RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel.Queue;
 
@@ -72,36 +71,6 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
         public async Task<IEnumerable<Queue>> GetQueues()
         {
             return await DoGetCall<IEnumerable<Queue>>("/api/queues");
-        }
-
-        /// <summary>
-        /// Publish a message to a given exchange. 
-        /// </summary>
-        /// <param name="virtualHost"></param>
-        /// <param name="exchangeName"></param>
-        /// <param name="routingKey">binding key</param>
-        /// <param name="payload">message data</param>
-        /// <param name="payloadEncoding">The payload_encoding key should be either "string" (in which case the payload will be taken to be the UTF-8 encoding of the payload field) or "base64" (in which case the payload field is taken to be base64 encoded).</param>
-        /// <param name="properties"></param>
-        /// <returns>routed will be true if the message was sent to at least one queue.</returns>
-        public async Task<bool> PublishMessage(
-            string virtualHost, string exchangeName, string routingKey,
-            dynamic payload, string payloadEncoding = "string", Properties properties = null)
-        {
-            if (exchangeName == String.Empty) exchangeName = routingKey;
-
-            var request = new PublishMessageRequest
-            {
-                payload = JsonConvert.SerializeObject(payload),
-                routing_key = routingKey,
-                properties = new Properties(),
-                payload_encoding = payloadEncoding
-            };
-
-            var response = await DoCall<PublishMessageResponse>(
-                $"/api/exchanges/{virtualHost.Encode()}/{exchangeName.Encode()}/publish", HttpMethod.Post, request);
-
-            return response.routed;
         }
     }
 }
