@@ -44,7 +44,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
         /// <param name="payload">message data</param>
         /// <param name="payloadEncoding">The payload_encoding key should be either "string" (in which case the payload will be taken to be the UTF-8 encoding of the payload field) or "base64" (in which case the payload field is taken to be base64 encoded).</param>
         /// <param name="properties"></param>
-        /// <returns>routed will be true if the message was sent to at least one queue.</returns>
+        /// <returns>true if the message was sent to at least one queue.</returns>
         public async Task<bool> PublishMessage(
             string virtualHost, string exchangeName, string routingKey, dynamic payload, 
             PayloadEncoding payloadEncoding = PayloadEncoding.String, Properties properties = null)
@@ -56,7 +56,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
                 payload = JsonConvert.SerializeObject(payload),
                 routing_key = routingKey,
                 properties = new Properties(),
-                payload_encoding = payloadEncoding == PayloadEncoding.String ? "string" : "base64"
+                payload_encoding = payloadEncoding.ToString("G").ToLower()
             };
 
             string path = $"/api/exchanges/{virtualHost.Encode()}/{exchangeName.Encode()}/publish";
