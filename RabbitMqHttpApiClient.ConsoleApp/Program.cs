@@ -32,7 +32,10 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetChannelsByVhost("/").Result;
             //var result = rabbitMqApi.GetChannelsByConnection("192.168.4.10:53094 -> 192.168.4.135:5672").Result;
             //var result = rabbitMqApi.GetConsumers().Result;
-            var result = rabbitMqApi.GetConsumersByVhost("/").Result;
+            //var result = rabbitMqApi.GetConsumersByVhost("/").Result;
+            //var result = rabbitMqApi.GetExchanges().Result;
+            //var result = rabbitMqApi.GetExchangesByVhost("/").Result;
+            //var result = rabbitMqApi.GetExchangesByVhostAndName("/", "PKO.BusConfiguration.Events:IRequestApprovedEvent").Result;
         }
 
         private class RequestApprovedEvent
