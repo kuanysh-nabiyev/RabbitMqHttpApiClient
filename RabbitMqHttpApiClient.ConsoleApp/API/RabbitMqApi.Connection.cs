@@ -20,8 +20,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
         /// </summary>
         public async Task<IEnumerable<Connection>> GetConnectionsByVhost(string virtualHost)
         {
-            if (virtualHost == "/") virtualHost = "%2F";
-            return await DoGetCall<IEnumerable<Connection>>($"/api/vhosts/{virtualHost}/connections");
+            return await DoGetCall<IEnumerable<Connection>>($"/api/vhosts/{virtualHost.Encode()}/connections");
         }
 
 		/// <summary>

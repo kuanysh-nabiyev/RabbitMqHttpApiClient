@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel;
+using RabbitMqHttpApiClient.ConsoleApp.Utils;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.API
 {
@@ -18,8 +19,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
         /// </summary>
         public async Task<GetDefinitionByVhostResponse> GetDefinitionByVhost(string virtualHost)
         {
-            if (virtualHost == "/") virtualHost = "%2F";
-            return await DoGetCall<GetDefinitionByVhostResponse>($"/api/definitions/{virtualHost}");
+            return await DoGetCall<GetDefinitionByVhostResponse>($"/api/definitions/{virtualHost.Encode()}");
         }
     }
 }

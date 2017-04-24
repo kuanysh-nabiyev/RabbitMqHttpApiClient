@@ -88,7 +88,6 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
             string virtualHost, string exchangeName, string routingKey,
             dynamic payload, string payloadEncoding = "string", Properties properties = null)
         {
-            if (virtualHost == "/") virtualHost = "%2F";
             if (exchangeName == String.Empty) exchangeName = routingKey;
 
             var request = new PublishMessageRequest
@@ -100,7 +99,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
             };
 
             var response = await DoCall<PublishMessageResponse>(
-                $"/api/exchanges/{virtualHost}/{exchangeName}/publish", HttpMethod.Post, request);
+                $"/api/exchanges/{virtualHost.Encode()}/{exchangeName.Encode()}/publish", HttpMethod.Post, request);
 
             return response.routed;
         }

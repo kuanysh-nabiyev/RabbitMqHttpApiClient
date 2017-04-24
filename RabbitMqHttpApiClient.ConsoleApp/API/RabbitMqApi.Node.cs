@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel;
+using RabbitMqHttpApiClient.ConsoleApp.Utils;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.API
 {
@@ -25,7 +26,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
         {
             string memory = withMemory.ToString().ToLowerInvariant();
             string binary = withBinary.ToString().ToLowerInvariant();
-            var path = $"/api/nodes/{nodeName}?memory={memory}&binary={binary}";
+            var path = $"/api/nodes/{nodeName.Encode()}?memory={memory}&binary={binary}";
             return await DoGetCall<Node>(path);
         }
     }
