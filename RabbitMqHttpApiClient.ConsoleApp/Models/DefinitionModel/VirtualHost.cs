@@ -7,5 +7,4 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel
         [JsonProperty("name")]
         public string Name { get; set; }
     }
-
 }

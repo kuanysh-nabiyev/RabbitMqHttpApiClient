@@ -22,6 +22,9 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel
 
         [JsonProperty("arguments")]
         public Arguments Arguments { get; set; }
+
+        [JsonProperty("properties_key")]
+        public string PropertiesKey { get; set; }
     }
 
 }
