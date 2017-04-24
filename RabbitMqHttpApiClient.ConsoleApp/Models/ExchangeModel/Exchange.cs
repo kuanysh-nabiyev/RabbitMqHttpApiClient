@@ -1,10 +1,13 @@
 ﻿using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
 
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.ExchangeModel
 {
     public class Exchange
     {
+        [JsonProperty("message_stats")]
+        public MessageStats MessageStats { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 

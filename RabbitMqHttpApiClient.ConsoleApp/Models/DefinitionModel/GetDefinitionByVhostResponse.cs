@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RabbitMqHttpApiClient.ConsoleApp.Models.ExchangeModel;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel
 {

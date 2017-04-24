@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
+using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common.MessageStatsModel;
 
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.Common
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.ExchangeModel
 {
     public class MessageStats 
-        : IPublishInfo, IAck, IDeliverGet, IConfirm, IReturnUnroutable, 
-          IRedeliver, IDeliver, IDeliverNoAck, IGet, IGetNoAck
+        : IPublishInfo, IAck, IDeliverGet, IConfirm, IReturnUnroutable, IRedeliver
     {
         public int Publish { get; set; }
         public RateDetails PublishDetails { get; set; }
@@ -30,17 +30,5 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.Common
 
         public int Redeliver { get; set; }
         public RateDetails RedeliverDetails { get; set; }
-
-        public int Deliver { get; set; }
-        public RateDetails DeliverDetails { get; set; }
-
-        public int DeliverNoAck { get; set; }
-        public RateDetails DeliverNoAckDetails { get; set; }
-
-        public int Get { get; set; }
-        public RateDetails GetDetails { get; set; }
-
-        public int GetNoAck { get; set; }
-        public RateDetails GetNoAckDetails { get; set; }
     }
 }
