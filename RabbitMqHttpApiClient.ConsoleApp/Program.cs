@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using RabbitMqHttpApiClient.ConsoleApp.API;
+using RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel;
 
 namespace RabbitMqHttpApiClient.ConsoleApp
 {
@@ -8,14 +9,14 @@ namespace RabbitMqHttpApiClient.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //var rabbitMqApi = new RabbitMqApi("http://localhost:15672", "guest", "guest");
-            var rabbitMqApi = new RabbitMqApi("http://192.168.4.135:15672", "admin", "admin123!");
+            var rabbitMqApi = new RabbitMqApi("http://localhost:15672", "guest", "guest");
+            //var rabbitMqApi = new RabbitMqApi("http://192.168.4.135:15672", "admin", "admin123!");
 
-//            IEnumerable<MessageQueue> queues = rabbitMqApi.GetQueues().Result;
-//            foreach (var messageQueue in queues)
-//            {
-//                Console.WriteLine($"{messageQueue.name}");
-//            }
+            IEnumerable<Queue> queues = rabbitMqApi.GetQueues().Result;
+            foreach (var messageQueue in queues)
+            {
+                Console.WriteLine($"{messageQueue.Name}");
+            }
 
             //var result = rabbitMqApi.PublishMessage("/", "", "isez", new RequestApprovedEvent { RequestId = 12345}).Result;
             //var overview = rabbitMqApi.GetOverview().Result;

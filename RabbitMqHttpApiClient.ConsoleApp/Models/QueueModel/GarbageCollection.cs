@@ -1,10 +1,22 @@
+using Newtonsoft.Json;
+
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel
 {
     public class GarbageCollection
     {
-        public int min_bin_vheap_size { get; set; }
-        public int min_heap_size { get; set; }
-        public int fullsweep_after { get; set; }
-        public int minor_gcs { get; set; }
+        [JsonProperty("max_heap_size")]
+        public int MaxHeapSize { get; set; }
+
+        [JsonProperty("min_bin_vheap_size")]
+        public int MinBinVheapSize { get; set; }
+
+        [JsonProperty("min_heap_size")]
+        public int MinHeapSize { get; set; }
+
+        [JsonProperty("fullsweep_after")]
+        public int FullsweepAfter { get; set; }
+
+        [JsonProperty("minor_gcs")]
+        public int MinorGcs { get; set; }
     }
 }

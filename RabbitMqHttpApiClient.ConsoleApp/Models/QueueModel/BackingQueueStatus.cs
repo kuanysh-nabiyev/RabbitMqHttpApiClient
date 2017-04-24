@@ -1,21 +1,47 @@
-using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel
 {
     public class BackingQueueStatus
     {
-        public string mode { get; set; }
-        public int q1 { get; set; }
-        public int q2 { get; set; }
-        public List<object> delta { get; set; }
-        public int q3 { get; set; }
-        public int q4 { get; set; }
-        public int len { get; set; }
-        public string target_ram_count { get; set; }
-        public int next_seq_id { get; set; }
-        public double avg_ingress_rate { get; set; }
-        public double avg_egress_rate { get; set; }
-        public double avg_ack_ingress_rate { get; set; }
-        public double avg_ack_egress_rate { get; set; }
+        [JsonProperty("mode")]
+        public string Mode { get; set; }
+
+        [JsonProperty("q1")]
+        public int Q1 { get; set; }
+
+        [JsonProperty("q2")]
+        public int Q2 { get; set; }
+
+        [JsonProperty("delta")]
+        public object[] Delta { get; set; }
+
+        [JsonProperty("q3")]
+        public int Q3 { get; set; }
+
+        [JsonProperty("q4")]
+        public int Q4 { get; set; }
+
+        [JsonProperty("len")]
+        public int Len { get; set; }
+
+        [JsonProperty("target_ram_count")]
+        public string TargetRamCount { get; set; }
+
+        [JsonProperty("next_seq_id")]
+        public int NextSeqId { get; set; }
+
+        [JsonProperty("avg_ingress_rate")]
+        public double AvgIngressRate { get; set; }
+
+        [JsonProperty("avg_egress_rate")]
+        public double AvgEgressRate { get; set; }
+
+        [JsonProperty("avg_ack_ingress_rate")]
+        public double AvgAckIngressRate { get; set; }
+
+        [JsonProperty("avg_ack_egress_rate")]
+        public double AvgAckEgressRate { get; set; }
+
     }
 }

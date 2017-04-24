@@ -5,12 +5,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using RabbitMqHttpApiClient.ConsoleApp.Models.ClusterModel;
-using RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel;
-using RabbitMqHttpApiClient.ConsoleApp.Models.ExtensionModel;
-using RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel;
-using RabbitMqHttpApiClient.ConsoleApp.Utils;
-using Queue = RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel.Queue;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.API
 {
@@ -63,14 +57,6 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
             {
                 throw new HttpRequestException(result);
             }
-        }
-
-        /// <summary>
-        /// A list of all queues.
-        /// </summary>
-        public async Task<IEnumerable<Queue>> GetQueues()
-        {
-            return await DoGetCall<IEnumerable<Queue>>("/api/queues");
         }
     }
 }
