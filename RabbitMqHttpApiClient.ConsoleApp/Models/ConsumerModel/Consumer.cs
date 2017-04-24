@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
 
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.ChannelModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.ConsumerModel
 {
-    public class ConsumerDetail
+    public class Consumer
     {
         [JsonProperty("arguments")]
         public Arguments Arguments { get; set; }
@@ -24,6 +24,6 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.ChannelModel
         public Queue Queue { get; set; }
 
         [JsonProperty("channel_details")]
-        public ConsumerChannelDetails ChannelDetails { get; set; }
+        public ChannelDetails ChannelDetails { get; set; }
     }
 }

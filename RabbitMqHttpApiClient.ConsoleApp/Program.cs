@@ -31,6 +31,8 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetChannels().Result;
             //var result = rabbitMqApi.GetChannelsByVhost("/").Result;
             //var result = rabbitMqApi.GetChannelsByConnection("192.168.4.10:53094 -> 192.168.4.135:5672").Result;
+            //var result = rabbitMqApi.GetConsumers().Result;
+            var result = rabbitMqApi.GetConsumersByVhost("/").Result;
         }
 
         private class RequestApprovedEvent

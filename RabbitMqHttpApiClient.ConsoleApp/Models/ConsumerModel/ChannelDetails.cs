@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.ChannelModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.ConsumerModel
 {
-    public class ConsumerChannelDetails
+    public class ChannelDetails
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -22,4 +22,5 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.ChannelModel
         [JsonProperty("peer_host")]
         public string PeerHost { get; set; }
     }
+
 }

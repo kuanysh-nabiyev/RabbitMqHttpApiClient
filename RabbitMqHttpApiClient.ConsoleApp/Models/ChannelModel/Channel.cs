@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
+using RabbitMqHttpApiClient.ConsoleApp.Models.ConsumerModel;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.ChannelModel
 {
@@ -67,7 +68,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.ChannelModel
         public MessageStats MessageStats { get; set; }
 
         [JsonProperty("consumer_details")]
-        public IEnumerable<ConsumerDetail> ConsumerDetails { get; set; }
+        public IEnumerable<Consumer> ConsumerDetails { get; set; }
 
         [JsonProperty("deliveries")]
         public object[] Deliveries { get; set; }

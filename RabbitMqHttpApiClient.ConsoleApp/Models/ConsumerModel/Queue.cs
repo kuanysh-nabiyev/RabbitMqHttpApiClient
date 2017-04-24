@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RabbitMqHttpApiClient.ConsoleApp.Models.ChannelModel
+namespace RabbitMqHttpApiClient.ConsoleApp.Models.ConsumerModel
 {
     public class Queue
     {
@@ -10,4 +10,5 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.ChannelModel
         [JsonProperty("vhost")]
         public string Vhost { get; set; }
     }
+
 }
