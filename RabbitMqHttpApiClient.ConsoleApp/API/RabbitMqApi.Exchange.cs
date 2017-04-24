@@ -30,7 +30,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
         /// <summary>
         /// An individual exchange by virtual host and exchange name 
         /// </summary>
-        public async Task<Exchange> GetExchangesByVhostAndName(string virtualHost, string exchangeName)
+        public async Task<Exchange> GetExchangeByVhostAndName(string virtualHost, string exchangeName)
         {
             return await DoGetCall<Exchange>($"api/exchanges/{virtualHost.Encode()}/{exchangeName.Encode()}");
         }
@@ -49,7 +49,8 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
             string virtualHost, string exchangeName, string routingKey, dynamic payload, 
             PayloadEncoding payloadEncoding = PayloadEncoding.String, Properties properties = null)
         {
-            if (exchangeName == String.Empty) exchangeName = routingKey;
+            if (exchangeName == String.Empty)
+                throw new ArgumentException("Cannot send message using default exchange in HTTP API");
 
             var request = new PublishMessageRequest
             {
