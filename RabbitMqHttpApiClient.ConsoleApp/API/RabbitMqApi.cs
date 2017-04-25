@@ -26,22 +26,27 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
                 new AuthenticationHeaderValue("Basic", basicAuthHeader);
         }
 
-        public async Task<T> DoGetCall<T>(string path)
+        private async Task<T> DoGetCall<T>(string path)
         {
             return await DoCall<T>(path, HttpMethod.Get);
         }
 
-        public async Task<T> DoCall<T>(string path, HttpMethod method, dynamic body = null)
+        private async Task<T> DoCall<T>(string path, HttpMethod method, dynamic body = null)
         {
             HttpResponseMessage response;
             if (method == HttpMethod.Get)
             {
                 response = await Http.GetAsync(path);
-            } 
+            }
             else if (method == HttpMethod.Post)
             {
                 string messageBodyContent = JsonConvert.SerializeObject(body);
                 response = await Http.PostAsync(path, new StringContent(messageBodyContent));
+            }
+            else if (method == HttpMethod.Put)
+            {
+                string messageBodyContent = JsonConvert.SerializeObject(body);
+                response = await Http.PutAsync(path, new StringContent(messageBodyContent));
             }
             else
             {
@@ -55,6 +60,21 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
             }
             else
             {
+                throw new HttpRequestException(result);
+            }
+        }
+
+        private async Task<bool> DoDeleteCall(string path)
+        {
+            HttpResponseMessage response = await Http.DeleteAsync(path);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                string result = await response.Content.ReadAsStringAsync();
                 throw new HttpRequestException(result);
             }
         }

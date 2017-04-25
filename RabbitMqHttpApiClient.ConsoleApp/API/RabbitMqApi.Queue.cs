@@ -56,5 +56,15 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
             string path = $"/api/queues/{virtualHost.Encode()}/{queueName.Encode()}/get";
             return await DoCall<IEnumerable<QueueMessage>>(path, HttpMethod.Post, request);
         }
+
+        /// <summary>
+        /// Purge (delete all messages) of a given queue
+        /// </summary>
+        /// <returns>true if all messages is deleted</returns>
+        public async Task<bool> DeleteAllQueueMessages(string virtualHost, string queueName)
+        {
+            string path = $"/api/queues/{virtualHost.Encode()}/{queueName.Encode()}/contents";
+            return await DoDeleteCall(path);
+        }
     }
 }
