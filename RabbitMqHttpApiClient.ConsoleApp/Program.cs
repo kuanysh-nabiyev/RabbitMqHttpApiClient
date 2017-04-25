@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using RabbitMqHttpApiClient.ConsoleApp.API;
+using RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel;
 
 namespace RabbitMqHttpApiClient.ConsoleApp
@@ -13,11 +14,11 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var rabbitMqApi = new RabbitMqApi("http://192.168.4.135:15672", "admin", "admin123!");
 
             //var queues = rabbitMqApi.GetQueues().Result;
-//            var queues = rabbitMqApi.GetQueuesByVhost("/").Result;
-//            foreach (var messageQueue in queues)
-//            {
-//                Console.WriteLine($"{messageQueue.Name}");
-//            }
+            //            var queues = rabbitMqApi.GetQueuesByVhost("/").Result;
+            //            foreach (var messageQueue in queues)
+            //            {
+            //                Console.WriteLine($"{messageQueue.Name}");
+            //            }
             //var result = rabbitMqApi.GetQueueByVhostAndName("/", "isez").Result;
 
             //var result = rabbitMqApi.PublishMessage("/", "", "isez", new RequestApprovedEvent { RequestId = 12345}).Result;
@@ -39,6 +40,10 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetExchanges().Result;
             //var result = rabbitMqApi.GetExchangesByVhost("/").Result;
             //var result = rabbitMqApi.GetExchangeByVhostAndName("/", "PKO.BusConfiguration.Events:IRequestApprovedEvent").Result;
+            //var result = rabbitMqApi.GetBindings().Result;
+            //var result = rabbitMqApi.GetBindingsByVhost("/").Result;
+            //var result = rabbitMqApi.GetBindingsByVhostAndQueue("/", "isez").Result;
+            var result = rabbitMqApi.GetBindingsByVhostAndExchange("/", "isez", ExchangeBindingType.Destination).Result;
         }
 
         private class RequestApprovedEvent

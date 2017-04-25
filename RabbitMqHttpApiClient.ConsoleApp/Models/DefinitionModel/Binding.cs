@@ -27,4 +27,9 @@ namespace RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel
         public string PropertiesKey { get; set; }
     }
 
+    public enum ExchangeBindingType
+    {
+        Source,
+        Destination
+    }
 }
