@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
+using RabbitMqHttpApiClient.ConsoleApp.Models.ExchangeModel.PublishMessageModel;
 using RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel;
 using RabbitMqHttpApiClient.ConsoleApp.Utils;
 
@@ -29,6 +32,29 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
         public async Task<Queue> GetQueueByVhostAndName(string virtualHost, string queueName)
         {
             return await DoGetCall<Queue>($"/api/queues/{virtualHost.Encode()}/{queueName.Encode()}");
+        }
+
+        /// <summary>
+        /// Get messages from a queue. (This is not an HTTP GET as it will alter the state of the queue.) 
+        /// </summary>
+        /// <param name="virtualHost"></param>
+        /// <param name="queueName"></param>
+        /// <param name="count">ols the maximum number of messages to get. You may get fewer messages than this if the queue cannot immediately provide them.</param>
+        /// <param name="requeue">determines whether the messages will be removed from the queue. If requeue is true they will be requeued - but their redelivered flag will be set.</param>
+        /// <param name="encoding">must be either "auto" (in which case the payload will be returned as a string if it is valid UTF-8, and base64 encoded otherwise), or "base64" (in which case the payload will always be base64 encoded).</param>
+        /// <returns></returns>
+        public async Task<IEnumerable<QueueMessage>> GetQueueMessages(string virtualHost, string queueName, 
+            int count = Int32.MaxValue, bool requeue = true, PayloadEncoding encoding = PayloadEncoding.Auto)
+        {
+            var request = new GetQueueMessagesRequest
+            {
+                count = count,
+                requeue = requeue,
+                encoding = encoding.ToString("G").ToLower(),
+            };
+
+            string path = $"/api/queues/{virtualHost.Encode()}/{queueName.Encode()}/get";
+            return await DoCall<IEnumerable<QueueMessage>>(path, HttpMethod.Post, request);
         }
     }
 }

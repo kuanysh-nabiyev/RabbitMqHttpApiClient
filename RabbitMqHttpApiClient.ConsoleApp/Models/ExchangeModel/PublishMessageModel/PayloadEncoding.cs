@@ -2,6 +2,7 @@
 {
     public enum PayloadEncoding
     {
+        Auto,
         String,
         Base64
     }

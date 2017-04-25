@@ -43,7 +43,8 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetBindings().Result;
             //var result = rabbitMqApi.GetBindingsByVhost("/").Result;
             //var result = rabbitMqApi.GetBindingsByVhostAndQueue("/", "isez").Result;
-            var result = rabbitMqApi.GetBindingsByVhostAndExchange("/", "isez", ExchangeBindingType.Destination).Result;
+            //var result = rabbitMqApi.GetBindingsByVhostAndExchange("/", "isez", ExchangeBindingType.Destination).Result;
+            var result = rabbitMqApi.GetQueueMessages("/", "isez", 2).Result;
         }
 
         private class RequestApprovedEvent
