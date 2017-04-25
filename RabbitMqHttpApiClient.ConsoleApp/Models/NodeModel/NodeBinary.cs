@@ -1,16 +1,37 @@
+using Newtonsoft.Json;
+
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel
 {
     public class NodeBinary
     {
-        public int connection_readers { get; set; }
-        public int connection_writers { get; set; }
-        public int connection_channels { get; set; }
-        public int connection_other { get; set; }
-        public int queue_procs { get; set; }
-        public int queue_slave_procs { get; set; }
-        public int plugins { get; set; }
-        public int mgmt_db { get; set; }
-        public int msg_index { get; set; }
-        public int other { get; set; }
+        [JsonProperty("connection_readers")]
+        public int ConnectionReaders { get; set; }
+
+        [JsonProperty("connection_writers")]
+        public int ConnectionWriters { get; set; }
+
+        [JsonProperty("connection_channels")]
+        public int ConnectionChannels { get; set; }
+
+        [JsonProperty("connection_other")]
+        public int ConnectionOther { get; set; }
+
+        [JsonProperty("queue_procs")]
+        public int QueueProcs { get; set; }
+
+        [JsonProperty("queue_slave_procs")]
+        public int QueueSlaveProcs { get; set; }
+
+        [JsonProperty("plugins")]
+        public int Plugins { get; set; }
+
+        [JsonProperty("mgmt_db")]
+        public int MgmtDb { get; set; }
+
+        [JsonProperty("msg_index")]
+        public int MsgIndex { get; set; }
+
+        [JsonProperty("other")]
+        public int Other { get; set; }
     }
 }

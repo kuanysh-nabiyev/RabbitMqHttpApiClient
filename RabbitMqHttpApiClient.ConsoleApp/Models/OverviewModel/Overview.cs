@@ -1,25 +1,55 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel
 {
     public class Overview
     {
-        public string management_version { get; set; }
-        public string rates_mode { get; set; }
-        public IEnumerable<ExchangeType> exchange_types { get; set; }
-        public string rabbitmq_version { get; set; }
-        public string cluster_name { get; set; }
-        public string erlang_version { get; set; }
-        public string erlang_full_version { get; set; }
-        public MessageStats message_stats { get; set; }
-        public QueueTotals queue_totals { get; set; }
-        public ObjectTotals object_totals { get; set; }
-        public int statistics_db_event_queue { get; set; }
-        public string node { get; set; }
-        public string statistics_db_node { get; set; }
-        public IEnumerable<Listener> listeners { get; set; }
-        public IEnumerable<Context> contexts { get; set; }
+        [JsonProperty("management_version")]
+        public string ManagementVersion { get; set; }
+
+        [JsonProperty("rates_mode")]
+        public string RatesMode { get; set; }
+
+        [JsonProperty("exchange_types")]
+        public ExchangeType[] ExchangeTypes { get; set; }
+
+        [JsonProperty("rabbitmq_version")]
+        public string RabbitmqVersion { get; set; }
+
+        [JsonProperty("cluster_name")]
+        public string ClusterName { get; set; }
+
+        [JsonProperty("erlang_version")]
+        public string ErlangVersion { get; set; }
+
+        [JsonProperty("erlang_full_version")]
+        public string ErlangFullVersion { get; set; }
+
+        [JsonProperty("message_stats")]
+        public MessageStats MessageStats { get; set; }
+
+        [JsonProperty("queue_totals")]
+        public QueueTotals QueueTotals { get; set; }
+
+        [JsonProperty("object_totals")]
+        public ObjectTotals ObjectTotals { get; set; }
+
+        [JsonProperty("statistics_db_event_queue")]
+        public int StatisticsDbEventQueue { get; set; }
+
+        [JsonProperty("node")]
+        public string Node { get; set; }
+
+        [JsonProperty("statistics_db_node")]
+        public string StatisticsDbNode { get; set; }
+
+        [JsonProperty("listeners")]
+        public Listener[] Listeners { get; set; }
+
+        [JsonProperty("contexts")]
+        public Context[] Contexts { get; set; }
     }
 
 }

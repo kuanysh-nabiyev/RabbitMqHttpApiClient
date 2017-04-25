@@ -1,7 +1,10 @@
+using Newtonsoft.Json;
+
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.ExtensionModel
 {
     public class ManagementPluginExtension
     {
-        public string javascript { get; set; }
+        [JsonProperty("javascript")]
+        public string Javascript { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp.API
         public async Task<string> GetClusterName()
         {
             var response = await DoGetCall<Cluster>("/api/cluster-name");
-            return response.name;
+            return response.Name;
         }
 
         /// <summary>

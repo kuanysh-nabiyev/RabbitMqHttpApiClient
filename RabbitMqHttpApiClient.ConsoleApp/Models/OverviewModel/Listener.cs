@@ -1,10 +1,19 @@
+using Newtonsoft.Json;
+
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.OverviewModel
 {
     public class Listener
     {
-        public string node { get; set; }
-        public string protocol { get; set; }
-        public string ip_address { get; set; }
-        public int port { get; set; }
+        [JsonProperty("node")]
+        public string Node { get; set; }
+
+        [JsonProperty("protocol")]
+        public string Protocol { get; set; }
+
+        [JsonProperty("ip_address")]
+        public string IpAddress { get; set; }
+
+        [JsonProperty("port")]
+        public int Port { get; set; }
     }
 }

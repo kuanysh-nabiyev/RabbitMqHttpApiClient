@@ -1,94 +1,264 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using RabbitMqHttpApiClient.ConsoleApp.Models.Common;
 
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel
 {
     public class Node
     {
-        public NodeBinary binary { get; set; }
-        public NodeMemory memory { get; set; }
-        public IEnumerable<object> cluster_links { get; set; }
-        public int mem_used { get; set; }
-        public RateDetails mem_used_details { get; set; }
-        public int fd_used { get; set; }
-        public RateDetails fd_used_details { get; set; }
-        public int sockets_used { get; set; }
-        public RateDetails sockets_used_details { get; set; }
-        public int proc_used { get; set; }
-        public RateDetails proc_used_details { get; set; }
-        public long disk_free { get; set; }
-        public RateDetails disk_free_details { get; set; }
-        public int io_read_count { get; set; }
-        public RateDetails io_read_count_details { get; set; }
-        public int io_read_bytes { get; set; }
-        public RateDetails io_read_bytes_details { get; set; }
-        public double io_read_avg_time { get; set; }
-        public RateDetails io_read_avg_time_details { get; set; }
-        public int io_write_count { get; set; }
-        public RateDetails io_write_count_details { get; set; }
-        public int io_write_bytes { get; set; }
-        public RateDetails io_write_bytes_details { get; set; }
-        public double io_write_avg_time { get; set; }
-        public RateDetails io_write_avg_time_details { get; set; }
-        public int io_sync_count { get; set; }
-        public RateDetails io_sync_count_details { get; set; }
-        public double io_sync_avg_time { get; set; }
-        public RateDetails io_sync_avg_time_details { get; set; }
-        public int io_seek_count { get; set; }
-        public RateDetails io_seek_count_details { get; set; }
-        public double io_seek_avg_time { get; set; }
-        public RateDetails io_seek_avg_time_details { get; set; }
-        public int io_reopen_count { get; set; }
-        public RateDetails io_reopen_count_details { get; set; }
-        public int mnesia_ram_tx_count { get; set; }
-        public RateDetails mnesia_ram_tx_count_details { get; set; }
-        public int mnesia_disk_tx_count { get; set; }
-        public RateDetails mnesia_disk_tx_count_details { get; set; }
-        public int msg_store_read_count { get; set; }
-        public RateDetails msg_store_read_count_details { get; set; }
-        public int msg_store_write_count { get; set; }
-        public RateDetails msg_store_write_count_details { get; set; }
-        public int queue_index_journal_write_count { get; set; }
-        public RateDetails queue_index_journal_write_count_details { get; set; }
-        public int queue_index_write_count { get; set; }
-        public RateDetails queue_index_write_count_details { get; set; }
-        public int queue_index_read_count { get; set; }
-        public RateDetails queue_index_read_count_details { get; set; }
-        public int gc_num { get; set; }
-        public RateDetails gc_num_details { get; set; }
-        public long gc_bytes_reclaimed { get; set; }
-        public RateDetails gc_bytes_reclaimed_details { get; set; }
-        public int context_switches { get; set; }
-        public RateDetails context_switches_details { get; set; }
-        public int io_file_handle_open_attempt_count { get; set; }
-        public RateDetails io_file_handle_open_attempt_count_details { get; set; }
-        public double io_file_handle_open_attempt_avg_time { get; set; }
-        public RateDetails io_file_handle_open_attempt_avg_time_details { get; set; }
-        public IEnumerable<object> partitions { get; set; }
-        public string os_pid { get; set; }
-        public int fd_total { get; set; }
-        public int sockets_total { get; set; }
-        public long mem_limit { get; set; }
-        public bool mem_alarm { get; set; }
-        public int disk_free_limit { get; set; }
-        public bool disk_free_alarm { get; set; }
-        public int proc_total { get; set; }
-        public string rates_mode { get; set; }
-        public double uptime { get; set; }
-        public int run_queue { get; set; }
-        public int processors { get; set; }
-        public IEnumerable<ExchangeType> exchange_types { get; set; }
-        public IEnumerable<AuthMechanism> auth_mechanisms { get; set; }
-        public IEnumerable<Application> applications { get; set; }
-        public IEnumerable<Context> contexts { get; set; }
-        public string log_file { get; set; }
-        public string sasl_log_file { get; set; }
-        public string db_dir { get; set; }
-        public IEnumerable<string> config_files { get; set; }
-        public double net_ticktime { get; set; }
-        public IEnumerable<string> enabled_plugins { get; set; }
-        public string name { get; set; }
-        public string type { get; set; }
-        public bool running { get; set; }
+        [JsonProperty("binary")]
+        public NodeBinary Binary { get; set; }
+
+        [JsonProperty("memory")]
+        public NodeMemory Memory { get; set; }
+
+        [JsonProperty("cluster_links")]
+        public object[] ClusterLinks { get; set; }
+
+        [JsonProperty("mem_used")]
+        public int MemUsed { get; set; }
+
+        [JsonProperty("mem_used_details")]
+        public RateDetails MemUsedDetails { get; set; }
+
+        [JsonProperty("fd_used")]
+        public int FdUsed { get; set; }
+
+        [JsonProperty("fd_used_details")]
+        public RateDetails FdUsedDetails { get; set; }
+
+        [JsonProperty("sockets_used")]
+        public int SocketsUsed { get; set; }
+
+        [JsonProperty("sockets_used_details")]
+        public RateDetails SocketsUsedDetails { get; set; }
+
+        [JsonProperty("proc_used")]
+        public int ProcUsed { get; set; }
+
+        [JsonProperty("proc_used_details")]
+        public RateDetails ProcUsedDetails { get; set; }
+
+        [JsonProperty("disk_free")]
+        public long DiskFree { get; set; }
+
+        [JsonProperty("disk_free_details")]
+        public RateDetails DiskFreeDetails { get; set; }
+
+        [JsonProperty("io_read_count")]
+        public int IoReadCount { get; set; }
+
+        [JsonProperty("io_read_count_details")]
+        public RateDetails IoReadCountDetails { get; set; }
+
+        [JsonProperty("io_read_bytes")]
+        public int IoReadBytes { get; set; }
+
+        [JsonProperty("io_read_bytes_details")]
+        public RateDetails IoReadBytesDetails { get; set; }
+
+        [JsonProperty("io_read_avg_time")]
+        public double IoReadAvgTime { get; set; }
+
+        [JsonProperty("io_read_avg_time_details")]
+        public RateDetails IoReadAvgTimeDetails { get; set; }
+
+        [JsonProperty("io_write_count")]
+        public int IoWriteCount { get; set; }
+
+        [JsonProperty("io_write_count_details")]
+        public RateDetails IoWriteCountDetails { get; set; }
+
+        [JsonProperty("io_write_bytes")]
+        public int IoWriteBytes { get; set; }
+
+        [JsonProperty("io_write_bytes_details")]
+        public RateDetails IoWriteBytesDetails { get; set; }
+
+        [JsonProperty("io_write_avg_time")]
+        public double IoWriteAvgTime { get; set; }
+
+        [JsonProperty("io_write_avg_time_details")]
+        public RateDetails IoWriteAvgTimeDetails { get; set; }
+
+        [JsonProperty("io_sync_count")]
+        public int IoSyncCount { get; set; }
+
+        [JsonProperty("io_sync_count_details")]
+        public RateDetails IoSyncCountDetails { get; set; }
+
+        [JsonProperty("io_sync_avg_time")]
+        public double IoSyncAvgTime { get; set; }
+
+        [JsonProperty("io_sync_avg_time_details")]
+        public RateDetails IoSyncAvgTimeDetails { get; set; }
+
+        [JsonProperty("io_seek_count")]
+        public int IoSeekCount { get; set; }
+
+        [JsonProperty("io_seek_count_details")]
+        public RateDetails IoSeekCountDetails { get; set; }
+
+        [JsonProperty("io_seek_avg_time")]
+        public double IoSeekAvgTime { get; set; }
+
+        [JsonProperty("io_seek_avg_time_details")]
+        public RateDetails IoSeekAvgTimeDetails { get; set; }
+
+        [JsonProperty("io_reopen_count")]
+        public int IoReopenCount { get; set; }
+
+        [JsonProperty("io_reopen_count_details")]
+        public RateDetails IoReopenCountDetails { get; set; }
+
+        [JsonProperty("mnesia_ram_tx_count")]
+        public int MnesiaRamTxCount { get; set; }
+
+        [JsonProperty("mnesia_ram_tx_count_details")]
+        public RateDetails MnesiaRamTxCountDetails { get; set; }
+
+        [JsonProperty("mnesia_disk_tx_count")]
+        public int MnesiaDiskTxCount { get; set; }
+
+        [JsonProperty("mnesia_disk_tx_count_details")]
+        public RateDetails MnesiaDiskTxCountDetails { get; set; }
+
+        [JsonProperty("msg_store_read_count")]
+        public int MsgStoreReadCount { get; set; }
+
+        [JsonProperty("msg_store_read_count_details")]
+        public RateDetails MsgStoreReadCountDetails { get; set; }
+
+        [JsonProperty("msg_store_write_count")]
+        public int MsgStoreWriteCount { get; set; }
+
+        [JsonProperty("msg_store_write_count_details")]
+        public RateDetails MsgStoreWriteCountDetails { get; set; }
+
+        [JsonProperty("queue_index_journal_write_count")]
+        public int QueueIndexJournalWriteCount { get; set; }
+
+        [JsonProperty("queue_index_journal_write_count_details")]
+        public RateDetails QueueIndexJournalWriteCountDetails { get; set; }
+
+        [JsonProperty("queue_index_write_count")]
+        public int QueueIndexWriteCount { get; set; }
+
+        [JsonProperty("queue_index_write_count_details")]
+        public RateDetails QueueIndexWriteCountDetails { get; set; }
+
+        [JsonProperty("queue_index_read_count")]
+        public int QueueIndexReadCount { get; set; }
+
+        [JsonProperty("queue_index_read_count_details")]
+        public RateDetails QueueIndexReadCountDetails { get; set; }
+
+        [JsonProperty("gc_num")]
+        public int GcNum { get; set; }
+
+        [JsonProperty("gc_num_details")]
+        public RateDetails GcNumDetails { get; set; }
+
+        [JsonProperty("gc_bytes_reclaimed")]
+        public long GcBytesReclaimed { get; set; }
+
+        [JsonProperty("gc_bytes_reclaimed_details")]
+        public RateDetails GcBytesReclaimedDetails { get; set; }
+
+        [JsonProperty("context_switches")]
+        public int ContextSwitches { get; set; }
+
+        [JsonProperty("context_switches_details")]
+        public RateDetails ContextSwitchesDetails { get; set; }
+
+        [JsonProperty("io_file_handle_open_attempt_count")]
+        public int IoFileHandleOpenAttemptCount { get; set; }
+
+        [JsonProperty("io_file_handle_open_attempt_count_details")]
+        public RateDetails IoFileHandleOpenAttemptCountDetails { get; set; }
+
+        [JsonProperty("io_file_handle_open_attempt_avg_time")]
+        public double IoFileHandleOpenAttemptAvgTime { get; set; }
+
+        [JsonProperty("io_file_handle_open_attempt_avg_time_details")]
+        public RateDetails IoFileHandleOpenAttemptAvgTimeDetails { get; set; }
+
+        [JsonProperty("partitions")]
+        public object[] Partitions { get; set; }
+
+        [JsonProperty("os_pid")]
+        public string OsPid { get; set; }
+
+        [JsonProperty("fd_total")]
+        public int FdTotal { get; set; }
+
+        [JsonProperty("sockets_total")]
+        public int SocketsTotal { get; set; }
+
+        [JsonProperty("mem_limit")]
+        public long MemLimit { get; set; }
+
+        [JsonProperty("mem_alarm")]
+        public bool MemAlarm { get; set; }
+
+        [JsonProperty("disk_free_limit")]
+        public int DiskFreeLimit { get; set; }
+
+        [JsonProperty("disk_free_alarm")]
+        public bool DiskFreeAlarm { get; set; }
+
+        [JsonProperty("proc_total")]
+        public int ProcTotal { get; set; }
+
+        [JsonProperty("rates_mode")]
+        public string RatesMode { get; set; }
+
+        [JsonProperty("uptime")]
+        public double Uptime { get; set; }
+
+        [JsonProperty("run_queue")]
+        public int RunQueue { get; set; }
+
+        [JsonProperty("processors")]
+        public int Processors { get; set; }
+
+        [JsonProperty("exchange_types")]
+        public ExchangeType[] ExchangeTypes { get; set; }
+
+        [JsonProperty("auth_mechanisms")]
+        public AuthMechanism[] AuthMechanisms { get; set; }
+
+        [JsonProperty("applications")]
+        public Application[] Applications { get; set; }
+
+        [JsonProperty("contexts")]
+        public Context[] Contexts { get; set; }
+
+        [JsonProperty("log_file")]
+        public string LogFile { get; set; }
+
+        [JsonProperty("sasl_log_file")]
+        public string SaslLogFile { get; set; }
+
+        [JsonProperty("db_dir")]
+        public string DbDir { get; set; }
+
+        [JsonProperty("config_files")]
+        public string[] ConfigFiles { get; set; }
+
+        [JsonProperty("net_ticktime")]
+        public double NetTicktime { get; set; }
+
+        [JsonProperty("enabled_plugins")]
+        public string[] EnabledPlugins { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("type")]
+        public string Type { get; set; }
+
+        [JsonProperty("running")]
+        public bool Running { get; set; }
     }
 }

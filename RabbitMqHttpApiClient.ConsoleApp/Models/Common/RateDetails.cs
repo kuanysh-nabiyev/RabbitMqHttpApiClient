@@ -1,7 +1,10 @@
+using Newtonsoft.Json;
+
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.Common
 {
     public class RateDetails
     {
-        public double rate { get; set; }
+        [JsonProperty("rate")]
+        public double Rate { get; set; }
     }
 }

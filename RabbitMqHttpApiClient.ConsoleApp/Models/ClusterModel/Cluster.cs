@@ -1,7 +1,10 @@
+using Newtonsoft.Json;
+
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.ClusterModel
 {
     public class Cluster
     {
-        public string name { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
     }
 }

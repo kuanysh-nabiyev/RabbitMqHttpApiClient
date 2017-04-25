@@ -1,9 +1,16 @@
+using Newtonsoft.Json;
+
 namespace RabbitMqHttpApiClient.ConsoleApp.Models.NodeModel
 {
     public class Application
     {
-        public string name { get; set; }
-        public string description { get; set; }
-        public string version { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
     }
 }
