@@ -2,9 +2,9 @@
 
 namespace RabbitMqHttpApiClient.Utils
 {
-    public static class UrlPathEncoder
+    internal static class UrlPathEncoder
     {
-        public static string Encode(this string str)
+        internal static string Encode(this string str)
         {
             var returnStr = Uri.EscapeDataString(str);
             return returnStr;
