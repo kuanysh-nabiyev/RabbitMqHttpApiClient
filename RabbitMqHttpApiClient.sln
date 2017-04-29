@@ -1,11 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMqHttpApiClient.ConsoleApp", "RabbitMqHttpApiClient.ConsoleApp\RabbitMqHttpApiClient.ConsoleApp.csproj", "{0ED18179-B3BC-4659-BD9F-3DA71D4FC3A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMqHttpApiClient", "RabbitMqHttpApiClient\RabbitMqHttpApiClient.csproj", "{ECA5C18A-BA55-4D29-8048-3066270E6DE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMqHttpApiClient.Web", "RabbitMqHttpApiClient.Web\RabbitMqHttpApiClient.Web.csproj", "{ECA5C18A-BA55-4D29-8048-3066270E6DE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +22,10 @@ Global
 		{ECA5C18A-BA55-4D29-8048-3066270E6DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECA5C18A-BA55-4D29-8048-3066270E6DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECA5C18A-BA55-4D29-8048-3066270E6DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA5C18A-BA55-4D29-8048-3066270E6DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA5C18A-BA55-4D29-8048-3066270E6DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA5C18A-BA55-4D29-8048-3066270E6DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA5C18A-BA55-4D29-8048-3066270E6DE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

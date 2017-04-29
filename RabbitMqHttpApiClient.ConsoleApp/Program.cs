@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using RabbitMqHttpApiClient.ConsoleApp.API;
-using RabbitMqHttpApiClient.ConsoleApp.Models.DefinitionModel;
-using RabbitMqHttpApiClient.ConsoleApp.Models.QueueModel;
+using RabbitMqHttpApiClient.API;
 
 namespace RabbitMqHttpApiClient.ConsoleApp
 {
@@ -22,7 +18,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetQueueByVhostAndName("/", "isez").Result;
 
             //var result = rabbitMqApi.PublishMessage("/", "", "isez", new RequestApprovedEvent { RequestId = 12345}).Result;
-            //var overview = rabbitMqApi.GetOverview().Result;
+            var overview = rabbitMqApi.GetOverview().Result;
             //var nodes = rabbitMqApi.GetNodes().Result;
             //var node = rabbitMqApi.GetNode("rabbit@KUANYSH-PC", true, true).Result;
             //var extensions = rabbitMqApi.GetExtensions().Result;
@@ -45,7 +41,8 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetBindingsByVhostAndQueue("/", "isez").Result;
             //var result = rabbitMqApi.GetBindingsByVhostAndExchange("/", "isez", ExchangeBindingType.Destination).Result;
             //var result = rabbitMqApi.GetQueueMessages("/", "isez", 2).Result;
-            var result = rabbitMqApi.DeleteAllQueueMessages("/", "acts.executer.service_error").Result;
+            //var result = rabbitMqApi.DeleteAllQueueMessages("/", "acts.executer.service_error").Result;
+            //var result = rabbitMqApi.GetClusterName().Result;
         }
 
         private class RequestApprovedEvent
