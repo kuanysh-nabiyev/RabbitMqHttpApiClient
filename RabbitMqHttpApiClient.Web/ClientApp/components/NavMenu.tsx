@@ -28,8 +28,8 @@ export class NavMenu extends React.Component<any, void> {
                             </Link>
                         </li>
                         <li>
-                            <Link to={ '/fetchdata' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-th-list'></span> Fetch data
+                            <Link to={ '/queues' } activeClassName='active'>
+                                <span className='glyphicon glyphicon-th-list'></span> Queues
                             </Link>
                         </li>
                     </ul>

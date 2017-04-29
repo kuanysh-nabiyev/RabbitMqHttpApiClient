@@ -1,12 +1,12 @@
 import * as React from 'react';
 import 'isomorphic-fetch';
 
-interface FetchDataExampleState {
+interface FetchQueueListState {
     queues: Queue[];
     loading: boolean;
 }
-
-export class FetchData extends React.Component<any, FetchDataExampleState> {
+ 
+export class QueueList extends React.Component<any, FetchQueueListState> {
     constructor() {
         super();
         this.state = { queues: [], loading: true };
@@ -21,7 +21,7 @@ export class FetchData extends React.Component<any, FetchDataExampleState> {
     public render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
-            : FetchData.renderQueuesTable(this.state.queues);
+            : QueueList.renderQueuesTable(this.state.queues);
 
         return <div>
             <h1>RabbitMq Queues</h1>
