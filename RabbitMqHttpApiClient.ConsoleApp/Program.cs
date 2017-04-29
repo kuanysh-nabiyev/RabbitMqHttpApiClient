@@ -7,7 +7,6 @@ namespace RabbitMqHttpApiClient.ConsoleApp
         static void Main(string[] args)
         {
             var rabbitMqApi = new RabbitMqApi("http://localhost:15672", "guest", "guest");
-            //var rabbitMqApi = new RabbitMqApi("http://192.168.4.135:15672", "admin", "admin123!");
 
             //var queues = rabbitMqApi.GetQueues().Result;
             //            var queues = rabbitMqApi.GetQueuesByVhost("/").Result;
