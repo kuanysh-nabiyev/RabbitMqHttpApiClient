@@ -18,9 +18,35 @@ namespace WebApplicationBasic.Controllers
         }
 
         [HttpGet("/api/queues")]
-        public async Task<IEnumerable<Queue>> GetQueues()
+        public async Task<dynamic> GetQueues()
         {
-            return await _rabbitMqApi.GetQueues();
+            var queues = await _rabbitMqApi.GetQueues();
+
+            return queues.Select(item => new 
+            {
+                Name = item.Name,
+                VirtualHost = item.Vhost,
+                State = item.State,
+                TotalMessagesQuantity = item.Messages,
+                ReadyMessagesQuantity = item.MessagesReady,
+                UnackedMessagesQuantity = item.MessagesUnacknowledged
+            });
+        }
+
+        [HttpGet("/api/queues/{name}")]
+        public async Task<dynamic> GetQueueByName(string name)
+        {
+            var queue = await _rabbitMqApi.GetQueueByVhostAndName("/", name);
+            var messages = await _rabbitMqApi.GetQueueMessages("/", name);
+
+            return new {
+                Name = queue.Name,
+                Messages = messages.Select(item => new 
+                {
+                    Payload = item.Payload,
+                    PayloadBytes = item.PayloadBytes     
+                })
+            };
         }
     }
 }

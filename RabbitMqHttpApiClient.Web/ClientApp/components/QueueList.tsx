@@ -1,8 +1,10 @@
 import * as React from 'react';
 import 'isomorphic-fetch';
+import { Link } from 'react-router';
+import uniqid from 'uniqid';
 
 interface FetchQueueListState {
-    queues: Queue[];
+    queues: QueueListItemViewModel[];
     loading: boolean;
 }
  
@@ -12,7 +14,7 @@ export class QueueList extends React.Component<any, FetchQueueListState> {
         this.state = { queues: [], loading: true };
 
         fetch('/api/queues')
-            .then(response => response.json() as Promise<Queue[]>)
+            .then(response => response.json() as Promise<QueueListItemViewModel[]>)
             .then(data => {
                 this.setState({ queues: data, loading: false });
             });
@@ -31,7 +33,7 @@ export class QueueList extends React.Component<any, FetchQueueListState> {
         </div>;
     }
 
-    private static renderQueuesTable(queues: Queue[]) {
+    private static renderQueuesTable(queues: QueueListItemViewModel[]) {
         return <table className='table'>
             <thead>
                 <tr>
@@ -45,13 +47,15 @@ export class QueueList extends React.Component<any, FetchQueueListState> {
             </thead>
             <tbody>
             {queues.map(queue =>
-                <tr key={ queue.name }>
-                    <td>{ queue.name }</td>
+                <tr key={ uniqid() }>
+                    <td>
+                        <Link to={ `/queues/${queue.name}` }>{ queue.name }</Link>
+                    </td>
                     <td>{ queue.state }</td>
-                    <td>{ queue.vhost }</td>
-                    <td>{ queue.messages_ready }</td>
-                    <td>{ queue.messages_unacknowledged }</td>
-                    <td>{ queue.messages }</td>
+                    <td>{ queue.virtualHost }</td>
+                    <td>{ queue.readyMessagesQuantity }</td>
+                    <td>{ queue.unackedMessagesQuantity }</td>
+                    <td>{ queue.totalMessagesQuantity }</td>
                 </tr>
             )}
             </tbody>
@@ -59,11 +63,11 @@ export class QueueList extends React.Component<any, FetchQueueListState> {
     }
 }
 
-interface Queue {
+interface QueueListItemViewModel {
     name: string;
     state: string;
-    vhost: string;
-    messages: number;
-    messages_ready: number;
-    messages_unacknowledged: number;
+    virtualHost: string;
+    readyMessagesQuantity: number;
+    totalMessagesQuantity: number;
+    unackedMessagesQuantity: number;
 }
