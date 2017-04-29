@@ -36,18 +36,18 @@ export class QueueCard extends React.Component<any, FetchQueueDetailsState> {
     private static renderQueueDetails(queue: QueueCardViewModel) {
         return <div>
             <h3> -- { queue.name } -- </h3>
-            <table className='table table-bordered table-striped'>
+            <table className='table table-bordered'>
                 <thead>
                     <tr>
                         <th>Payload</th>
-                        <th>Payload bytes</th>
                     </tr>
                 </thead>
                 <tbody>
                 {queue.messages.map(message =>
                     <tr key={ uniqid() }>
-                        <td><pre>{ JSON.stringify(JSON.parse(message.payload), null, 2) }</pre></td>
-                        <td>{ message.payloadBytes }</td>
+                        <td>{ message.payloadBytes } bytes 
+                            <pre>{ JSON.stringify(JSON.parse(message.payload), null, 2) }</pre>
+                        </td>
                     </tr>
                 )}
                 </tbody>
