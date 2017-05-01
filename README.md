@@ -1,6 +1,27 @@
 # RabbitMqHttpApiClient
 C# wrapper for RabbitMQ HTTP Management API 
+===========================================
 
+Examples:
+```
+[HttpGet("/api/queues/{name}")]
+public async Task<dynamic> GetQueueByName(string name)
+{
+    var queue = await _rabbitMqApi.GetQueueByVhostAndName("/", name);
+    var messages = await _rabbitMqApi.GetQueueMessages("/", name);
+
+    return new {
+        Name = queue.Name,
+        Messages = messages.Select(item => new 
+        {
+            Payload = item.Payload,
+            PayloadBytes = item.PayloadBytes     
+        })
+    };
+}
+```
+
+Other methods:
 ```
 var rabbitMqApi = new RabbitMqApi("http://localhost:15672", "guest", "guest");
 
