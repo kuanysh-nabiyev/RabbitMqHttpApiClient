@@ -2,10 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+	<PackageId>RabbitMqHttpApiClient</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Kuanysh Nabiyev</Authors>
+    <Description>C# wrapper for RabbitMQ HTTP Management API</Description>            
+	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Copyright>Copyright 2016 (c) Kuanysh Nabiyev</Copyright>
+    <PackageTags>RabbitMQ</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
   </ItemGroup>
-
 </Project>
