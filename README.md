@@ -2,6 +2,11 @@
 C# wrapper for RabbitMQ HTTP Management API 
 ===========================================
 
+Installation:
+```
+Install-Package RabbitMqHttpApiClient
+```
+
 Examples:
 ```
 [HttpGet("/api/queues/{name}")]
