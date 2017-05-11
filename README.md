@@ -31,12 +31,13 @@ Other methods:
 ```
 var rabbitMqApi = new RabbitMqApi("http://localhost:15672", "guest", "guest");
 
-rabbitMqApi.GetQueues();
+rabbitMqApi.GetQueues(); 
 rabbitMqApi.GetQueuesByVhost("virtualHost");
 rabbitMqApi.GetQueueByVhostAndName("virtualHost", "queueName");
-rabbitMqApi.PublishMessage("virtualHost", "", "queueName", object);
+rabbitMqApi.PublishMessage("virtualHost", "exchangeName", "queueName", objectToPublish);
 rabbitMqApi.GetOverview();
 rabbitMqApi.GetNodes();
+rabbitMqApi.GetNode("nodeName", withMemory:true, withBinary:true)
 rabbitMqApi.GetExtensions();
 rabbitMqApi.GetDefinitions();
 rabbitMqApi.GetDefinitionByVhost("virtualHost");
