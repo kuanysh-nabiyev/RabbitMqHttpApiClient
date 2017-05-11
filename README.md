@@ -30,34 +30,43 @@ public async Task<dynamic> GetQueueByName(string name)
 Other methods:
 ```
 var rabbitMqApi = new RabbitMqApi("http://localhost:15672", "guest", "guest");
+IEnumerable<Queue> queues = await rabbitMqApi.GetQueues();
 
-rabbitMqApi.GetQueues(); 
-rabbitMqApi.GetQueuesByVhost("virtualHost");
-rabbitMqApi.GetQueueByVhostAndName("virtualHost", "queueName");
-rabbitMqApi.PublishMessage("virtualHost", "exchangeName", "queueName", objectToPublish);
-rabbitMqApi.GetOverview();
-rabbitMqApi.GetNodes();
-rabbitMqApi.GetNode("nodeName", withMemory:true, withBinary:true)
-rabbitMqApi.GetExtensions();
-rabbitMqApi.GetDefinitions();
-rabbitMqApi.GetDefinitionByVhost("virtualHost");
-rabbitMqApi.GetConnections();
-rabbitMqApi.GetConnectionsByVhost("virtualHost");
-rabbitMqApi.GetConnection("connectionname");
-rabbitMqApi.GetChannel("channelname");
-rabbitMqApi.GetChannels();
-rabbitMqApi.GetChannelsByVhost("virtualHost");
-rabbitMqApi.GetChannelsByConnection("connectionname");
-rabbitMqApi.GetConsumers();
-rabbitMqApi.GetConsumersByVhost("virtualHost");
-rabbitMqApi.GetExchanges();
-rabbitMqApi.GetExchangesByVhost("virtualHost");
-rabbitMqApi.GetExchangeByVhostAndName("virtualHost", "exchangeName");
-rabbitMqApi.GetBindings();
-rabbitMqApi.GetBindingsByVhost("virtualHost");
-rabbitMqApi.GetBindingsByVhostAndQueue("virtualHost", "queueName");
-rabbitMqApi.GetBindingsByVhostAndExchange("virtualHost", "queueName", ExchangeBindingType.Destination);
-rabbitMqApi.GetQueueMessages("virtualHost", "queueName", quantityOfMessagesToGet);
-rabbitMqApi.DeleteAllQueueMessages("virtualHost", "queueName");
-rabbitMqApi.GetClusterName();
+IEnumerable<Queue> GetQueues(); 
+IEnumerable<Queue> GetQueuesByVhost("virtualHost");
+Queue GetQueueByVhostAndName("virtualHost", "queueName");
+IEnumerable<QueueMessage> GetQueueMessages("virtualHost", "queueName", quantityOfMessagesToGet);
+bool DeleteAllQueueMessages("virtualHost", "queueName");
+
+IEnumerable<Node> GetNodes();
+Node GetNode("nodeName", withMemory:true, withBinary:true)
+
+SystemDefinition GetDefinitions();
+VhostDefinition GetDefinitionByVhost("virtualHost");
+
+IEnumerable<Connection> GetConnections();
+IEnumerable<Connection> GetConnectionsByVhost("virtualHost");
+Connection GetConnection("connectionname");
+
+IEnumerable<Channel> GetChannels();
+IEnumerable<Channel> GetChannelsByVhost("virtualHost");
+IEnumerable<Channel> GetChannelsByConnection("connectionname");
+Channel GetChannel("channelname");
+
+IEnumerable<Consumer> GetConsumers();
+IEnumerable<Consumer> GetConsumersByVhost("virtualHost");
+
+IEnumerable<Exchange> GetExchanges();
+IEnumerable<Exchange> GetExchangesByVhost("virtualHost");
+Exchange GetExchangeByVhostAndName("virtualHost", "exchangeName");
+bool PublishMessage("virtualHost", "exchangeName", "queueName", objectToPublish);
+
+IEnumerable<Binding> GetBindings();
+IEnumerable<Binding> GetBindingsByVhost("virtualHost");
+IEnumerable<Binding> GetBindingsByVhostAndQueue("virtualHost", "queueName");
+IEnumerable<Binding> GetBindingsByVhostAndExchange("virtualHost", "queueName", ExchangeBindingType.Destination);
+
+Overview GetOverview();
+string GetClusterName();
+IEnumerable<ManagementPluginExtension> GetExtensions();
 ```
