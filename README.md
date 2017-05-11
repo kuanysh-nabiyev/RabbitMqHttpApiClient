@@ -12,8 +12,9 @@ Examples:
 [HttpGet("/api/queues/{name}")]
 public async Task<dynamic> GetQueueByName(string name)
 {
-    var queue = await _rabbitMqApi.GetQueueByVhostAndName("/", name);
-    var messages = await _rabbitMqApi.GetQueueMessages("/", name);
+    string virtualHost = "/";
+    var queue = await _rabbitMqApi.GetQueueByVhostAndName(virtualHost, name);
+    var messages = await _rabbitMqApi.GetQueueMessages(virtualHost, name);
 
     return new {
         Name = queue.Name,
