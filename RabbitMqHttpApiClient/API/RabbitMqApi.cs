@@ -20,6 +20,16 @@ namespace RabbitMqHttpApiClient.API
                 new AuthenticationHeaderValue("Basic", basicAuthHeader);
         }
 
+        public RabbitMqApi(HttpClient httpClient)
+        {
+            if (httpClient == null)
+            {
+                throw new ArgumentNullException(nameof(httpClient));
+            }
+
+            Http = httpClient;
+        }
+
         private async Task<T> DoGetCall<T>(string path)
         {
             return await DoCall<T>(path, HttpMethod.Get);
