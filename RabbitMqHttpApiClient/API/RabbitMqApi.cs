@@ -9,20 +9,25 @@ namespace RabbitMqHttpApiClient.API
 {
     public partial class RabbitMqApi
     {
-        private static readonly HttpClient Http;
-
-        static RabbitMqApi()
-        {
-            Http = new HttpClient { Timeout = TimeSpan.FromMinutes(2) };
-        }
+        private readonly HttpClient Http;
 
         public RabbitMqApi(string rabbitMqUrl, string username, string password)
         {
             var basicAuthHeader = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{username}:{password}"));
-
+            Http = new HttpClient { Timeout = TimeSpan.FromMinutes(2) };
             Http.BaseAddress = new Uri(rabbitMqUrl);
             Http.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Basic", basicAuthHeader);
+        }
+
+        public RabbitMqApi(HttpClient httpClient)
+        {
+            if (httpClient == null)
+            {
+                throw new ArgumentNullException(nameof(httpClient));
+            }
+
+            Http = httpClient;
         }
 
         private async Task<T> DoGetCall<T>(string path)
