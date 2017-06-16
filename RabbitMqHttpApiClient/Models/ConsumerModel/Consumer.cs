@@ -9,7 +9,7 @@ namespace RabbitMqHttpApiClient.Models.ConsumerModel
         public Arguments Arguments { get; set; }
 
         [JsonProperty("prefetch_count")]
-        public int PrefetchCount { get; set; }
+        public long PrefetchCount { get; set; }
 
         [JsonProperty("ack_required")]
         public bool AckRequired { get; set; }

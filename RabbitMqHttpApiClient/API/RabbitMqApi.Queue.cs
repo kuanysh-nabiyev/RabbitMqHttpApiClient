@@ -44,7 +44,7 @@ namespace RabbitMqHttpApiClient.API
         /// <param name="encoding">must be either "auto" (in which case the payload will be returned as a string if it is valid UTF-8, and base64 encoded otherwise), or "base64" (in which case the payload will always be base64 encoded).</param>
         /// <returns></returns>
         public async Task<IEnumerable<QueueMessage>> GetQueueMessages(string virtualHost, string queueName, 
-            int count = Int32.MaxValue, bool requeue = true, PayloadEncoding encoding = PayloadEncoding.Auto)
+            long count = Int64.MaxValue, bool requeue = true, PayloadEncoding encoding = PayloadEncoding.Auto)
         {
             var request = new GetQueueMessagesRequest
             {

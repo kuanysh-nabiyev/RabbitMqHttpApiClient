@@ -5,13 +5,13 @@ namespace RabbitMqHttpApiClient.Models.Common.MessageStatsModel
     public interface IDiskInfo
     {
         [JsonProperty("disk_reads")]
-        int DiskReads { get; set; }
+        long DiskReads { get; set; }
 
         [JsonProperty("disk_reads_details")]
         RateDetails DiskReadsDetails { get; set; }
 
         [JsonProperty("disk_writes")]
-        int DiskWrites { get; set; }
+        long DiskWrites { get; set; }
 
         [JsonProperty("disk_writes_details")]
         RateDetails DiskWritesDetails { get; set; }

@@ -6,31 +6,31 @@ namespace RabbitMqHttpApiClient.Models.QueueModel
     public class Queue
     {
         [JsonProperty("memory")]
-        public int Memory { get; set; }
+        public long Memory { get; set; }
 
         [JsonProperty("message_stats")]
         public QueueMessageStats MessageStats { get; set; }
 
         [JsonProperty("reductions")]
-        public int Reductions { get; set; }
+        public long Reductions { get; set; }
 
         [JsonProperty("reductions_details")]
         public RateDetails ReductionsDetails { get; set; }
 
         [JsonProperty("messages")]
-        public int Messages { get; set; }
+        public long Messages { get; set; }
 
         [JsonProperty("messages_details")]
         public RateDetails MessagesDetails { get; set; }
 
         [JsonProperty("messages_ready")]
-        public int MessagesReady { get; set; }
+        public long MessagesReady { get; set; }
 
         [JsonProperty("messages_ready_details")]
         public RateDetails MessagesReadyDetails { get; set; }
 
         [JsonProperty("messages_unacknowledged")]
-        public int MessagesUnacknowledged { get; set; }
+        public long MessagesUnacknowledged { get; set; }
 
         [JsonProperty("messages_unacknowledged_details")]
         public RateDetails MessagesUnacknowledgedDetails { get; set; }
@@ -60,40 +60,40 @@ namespace RabbitMqHttpApiClient.Models.QueueModel
         public GarbageCollection GarbageCollection { get; set; }
 
         [JsonProperty("messages_ram")]
-        public int MessagesRam { get; set; }
+        public long MessagesRam { get; set; }
 
         [JsonProperty("messages_ready_ram")]
-        public int MessagesReadyRam { get; set; }
+        public long MessagesReadyRam { get; set; }
 
         [JsonProperty("messages_unacknowledged_ram")]
-        public int MessagesUnacknowledgedRam { get; set; }
+        public long MessagesUnacknowledgedRam { get; set; }
 
         [JsonProperty("messages_persistent")]
-        public int MessagesPersistent { get; set; }
+        public long MessagesPersistent { get; set; }
 
         [JsonProperty("message_bytes")]
-        public int MessageBytes { get; set; }
+        public long MessageBytes { get; set; }
 
         [JsonProperty("message_bytes_ready")]
-        public int MessageBytesReady { get; set; }
+        public long MessageBytesReady { get; set; }
 
         [JsonProperty("message_bytes_unacknowledged")]
-        public int MessageBytesUnacknowledged { get; set; }
+        public long MessageBytesUnacknowledged { get; set; }
 
         [JsonProperty("message_bytes_ram")]
-        public int MessageBytesRam { get; set; }
+        public long MessageBytesRam { get; set; }
 
         [JsonProperty("message_bytes_persistent")]
-        public int MessageBytesPersistent { get; set; }
+        public long MessageBytesPersistent { get; set; }
 
         [JsonProperty("head_message_timestamp")]
         public object HeadMessageTimestamp { get; set; }
 
         [JsonProperty("disk_reads")]
-        public int DiskReads { get; set; }
+        public long DiskReads { get; set; }
 
         [JsonProperty("disk_writes")]
-        public int DiskWrites { get; set; }
+        public long DiskWrites { get; set; }
 
         [JsonProperty("backing_queue_status")]
         public BackingQueueStatus BackingQueueStatus { get; set; }

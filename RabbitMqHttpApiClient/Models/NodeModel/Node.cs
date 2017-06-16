@@ -45,13 +45,13 @@ namespace RabbitMqHttpApiClient.Models.NodeModel
         public RateDetails DiskFreeDetails { get; set; }
 
         [JsonProperty("io_read_count")]
-        public int IoReadCount { get; set; }
+        public long IoReadCount { get; set; }
 
         [JsonProperty("io_read_count_details")]
         public RateDetails IoReadCountDetails { get; set; }
 
         [JsonProperty("io_read_bytes")]
-        public int IoReadBytes { get; set; }
+        public long IoReadBytes { get; set; }
 
         [JsonProperty("io_read_bytes_details")]
         public RateDetails IoReadBytesDetails { get; set; }
@@ -63,13 +63,13 @@ namespace RabbitMqHttpApiClient.Models.NodeModel
         public RateDetails IoReadAvgTimeDetails { get; set; }
 
         [JsonProperty("io_write_count")]
-        public int IoWriteCount { get; set; }
+        public long IoWriteCount { get; set; }
 
         [JsonProperty("io_write_count_details")]
         public RateDetails IoWriteCountDetails { get; set; }
 
         [JsonProperty("io_write_bytes")]
-        public int IoWriteBytes { get; set; }
+        public long IoWriteBytes { get; set; }
 
         [JsonProperty("io_write_bytes_details")]
         public RateDetails IoWriteBytesDetails { get; set; }
@@ -81,7 +81,7 @@ namespace RabbitMqHttpApiClient.Models.NodeModel
         public RateDetails IoWriteAvgTimeDetails { get; set; }
 
         [JsonProperty("io_sync_count")]
-        public int IoSyncCount { get; set; }
+        public long IoSyncCount { get; set; }
 
         [JsonProperty("io_sync_count_details")]
         public RateDetails IoSyncCountDetails { get; set; }
@@ -93,7 +93,7 @@ namespace RabbitMqHttpApiClient.Models.NodeModel
         public RateDetails IoSyncAvgTimeDetails { get; set; }
 
         [JsonProperty("io_seek_count")]
-        public int IoSeekCount { get; set; }
+        public long IoSeekCount { get; set; }
 
         [JsonProperty("io_seek_count_details")]
         public RateDetails IoSeekCountDetails { get; set; }
@@ -105,49 +105,49 @@ namespace RabbitMqHttpApiClient.Models.NodeModel
         public RateDetails IoSeekAvgTimeDetails { get; set; }
 
         [JsonProperty("io_reopen_count")]
-        public int IoReopenCount { get; set; }
+        public long IoReopenCount { get; set; }
 
         [JsonProperty("io_reopen_count_details")]
         public RateDetails IoReopenCountDetails { get; set; }
 
         [JsonProperty("mnesia_ram_tx_count")]
-        public int MnesiaRamTxCount { get; set; }
+        public long MnesiaRamTxCount { get; set; }
 
         [JsonProperty("mnesia_ram_tx_count_details")]
         public RateDetails MnesiaRamTxCountDetails { get; set; }
 
         [JsonProperty("mnesia_disk_tx_count")]
-        public int MnesiaDiskTxCount { get; set; }
+        public long MnesiaDiskTxCount { get; set; }
 
         [JsonProperty("mnesia_disk_tx_count_details")]
         public RateDetails MnesiaDiskTxCountDetails { get; set; }
 
         [JsonProperty("msg_store_read_count")]
-        public int MsgStoreReadCount { get; set; }
+        public long MsgStoreReadCount { get; set; }
 
         [JsonProperty("msg_store_read_count_details")]
         public RateDetails MsgStoreReadCountDetails { get; set; }
 
         [JsonProperty("msg_store_write_count")]
-        public int MsgStoreWriteCount { get; set; }
+        public long MsgStoreWriteCount { get; set; }
 
         [JsonProperty("msg_store_write_count_details")]
         public RateDetails MsgStoreWriteCountDetails { get; set; }
 
         [JsonProperty("queue_index_journal_write_count")]
-        public int QueueIndexJournalWriteCount { get; set; }
+        public long QueueIndexJournalWriteCount { get; set; }
 
         [JsonProperty("queue_index_journal_write_count_details")]
         public RateDetails QueueIndexJournalWriteCountDetails { get; set; }
 
         [JsonProperty("queue_index_write_count")]
-        public int QueueIndexWriteCount { get; set; }
+        public long QueueIndexWriteCount { get; set; }
 
         [JsonProperty("queue_index_write_count_details")]
         public RateDetails QueueIndexWriteCountDetails { get; set; }
 
         [JsonProperty("queue_index_read_count")]
-        public int QueueIndexReadCount { get; set; }
+        public long QueueIndexReadCount { get; set; }
 
         [JsonProperty("queue_index_read_count_details")]
         public RateDetails QueueIndexReadCountDetails { get; set; }
@@ -165,13 +165,13 @@ namespace RabbitMqHttpApiClient.Models.NodeModel
         public RateDetails GcBytesReclaimedDetails { get; set; }
 
         [JsonProperty("context_switches")]
-        public int ContextSwitches { get; set; }
+        public long ContextSwitches { get; set; }
 
         [JsonProperty("context_switches_details")]
         public RateDetails ContextSwitchesDetails { get; set; }
 
         [JsonProperty("io_file_handle_open_attempt_count")]
-        public int IoFileHandleOpenAttemptCount { get; set; }
+        public long IoFileHandleOpenAttemptCount { get; set; }
 
         [JsonProperty("io_file_handle_open_attempt_count_details")]
         public RateDetails IoFileHandleOpenAttemptCountDetails { get; set; }
@@ -201,7 +201,7 @@ namespace RabbitMqHttpApiClient.Models.NodeModel
         public bool MemAlarm { get; set; }
 
         [JsonProperty("disk_free_limit")]
-        public int DiskFreeLimit { get; set; }
+        public long DiskFreeLimit { get; set; }
 
         [JsonProperty("disk_free_alarm")]
         public bool DiskFreeAlarm { get; set; }

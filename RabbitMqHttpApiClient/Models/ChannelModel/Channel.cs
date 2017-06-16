@@ -26,31 +26,31 @@ namespace RabbitMqHttpApiClient.Models.ChannelModel
         public GarbageCollection GarbageCollection { get; set; }
 
         [JsonProperty("reductions")]
-        public int Reductions { get; set; }
+        public long Reductions { get; set; }
 
         [JsonProperty("state")]
         public string State { get; set; }
 
         [JsonProperty("global_prefetch_count")]
-        public int GlobalPrefetchCount { get; set; }
+        public long GlobalPrefetchCount { get; set; }
 
         [JsonProperty("prefetch_count")]
-        public int PrefetchCount { get; set; }
+        public long PrefetchCount { get; set; }
 
         [JsonProperty("acks_uncommitted")]
-        public int AcksUncommitted { get; set; }
+        public long AcksUncommitted { get; set; }
 
         [JsonProperty("messages_uncommitted")]
-        public int MessagesUncommitted { get; set; }
+        public long MessagesUncommitted { get; set; }
 
         [JsonProperty("messages_unconfirmed")]
-        public int MessagesUnconfirmed { get; set; }
+        public long MessagesUnconfirmed { get; set; }
 
         [JsonProperty("messages_unacknowledged")]
-        public int MessagesUnacknowledged { get; set; }
+        public long MessagesUnacknowledged { get; set; }
 
         [JsonProperty("consumer_count")]
-        public int ConsumerCount { get; set; }
+        public long ConsumerCount { get; set; }
 
         [JsonProperty("confirm")]
         public bool Confirm { get; set; }

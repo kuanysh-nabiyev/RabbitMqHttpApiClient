@@ -36,7 +36,7 @@ namespace RabbitMqHttpApiClient.Models.OverviewModel
         public ObjectTotals ObjectTotals { get; set; }
 
         [JsonProperty("statistics_db_event_queue")]
-        public int StatisticsDbEventQueue { get; set; }
+        public long StatisticsDbEventQueue { get; set; }
 
         [JsonProperty("node")]
         public string Node { get; set; }

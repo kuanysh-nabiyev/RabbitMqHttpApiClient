@@ -6,19 +6,19 @@ namespace RabbitMqHttpApiClient.Models.OverviewModel
     public class QueueTotals
     {
         [JsonProperty("messages")]
-        public int Messages { get; set; }
+        public long Messages { get; set; }
 
         [JsonProperty("messages_details")]
         public RateDetails MessagesDetails { get; set; }
 
         [JsonProperty("messages_ready")]
-        public int MessagesReady { get; set; }
+        public long MessagesReady { get; set; }
 
         [JsonProperty("messages_ready_details")]
         public RateDetails MessagesReadyDetails { get; set; }
 
         [JsonProperty("messages_unacknowledged")]
-        public int MessagesUnacknowledged { get; set; }
+        public long MessagesUnacknowledged { get; set; }
 
         [JsonProperty("messages_unacknowledged_details")]
         public RateDetails MessagesUnacknowledgedDetails { get; set; }
