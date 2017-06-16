@@ -1,12 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using RabbitMqHttpApiClient.Models.Common;
+using RabbitMqHttpApiClient.Utils;
 
 namespace RabbitMqHttpApiClient.Models.ConnectionModel
 {
     public class Connection
     {
+        [JsonConverter(typeof(EpochDateTimeConverter))]
         [JsonProperty("connected_at")]
-        public object ConnectedAt { get; set; }
+        public DateTime ConnectedAt { get; set; }
 
         [JsonProperty("client_properties")]
         public ClientProperties ClientProperties { get; set; }
