@@ -6,7 +6,7 @@ namespace RabbitMqHttpApiClient.Models.QueueModel
     public class QueueMessage
     {
         [JsonProperty("payload_bytes")]
-        public int PayloadBytes { get; set; }
+        public long PayloadBytes { get; set; }
 
         [JsonProperty("redelivered")]
         public bool Redelivered { get; set; }
@@ -18,7 +18,7 @@ namespace RabbitMqHttpApiClient.Models.QueueModel
         public string RoutingKey { get; set; }
 
         [JsonProperty("message_count")]
-        public int MessageCount { get; set; }
+        public long MessageCount { get; set; }
 
         [JsonProperty("properties")]
         public Properties Properties { get; set; }

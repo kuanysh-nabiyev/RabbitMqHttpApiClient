@@ -5,7 +5,7 @@ namespace RabbitMqHttpApiClient.Models.Common.MessageStatsModel
     public interface IGet
     {
         [JsonProperty("get")]
-        int Get { get; set; }
+        long Get { get; set; }
 
         [JsonProperty("get_details")]
         RateDetails GetDetails { get; set; }

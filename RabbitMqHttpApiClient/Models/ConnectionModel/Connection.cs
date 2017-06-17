@@ -81,7 +81,7 @@ namespace RabbitMqHttpApiClient.Models.ConnectionModel
         public GarbageCollection GarbageCollection { get; set; }
 
         [JsonProperty("reductions")]
-        public int Reductions { get; set; }
+        public long Reductions { get; set; }
 
         [JsonProperty("channels")]
         public int Channels { get; set; }
@@ -90,25 +90,25 @@ namespace RabbitMqHttpApiClient.Models.ConnectionModel
         public string State { get; set; }
 
         [JsonProperty("send_pend")]
-        public int SendPend { get; set; }
+        public long SendPend { get; set; }
 
         [JsonProperty("send_cnt")]
-        public int SendCnt { get; set; }
+        public long SendCnt { get; set; }
 
         [JsonProperty("recv_cnt")]
-        public int RecvCnt { get; set; }
+        public long RecvCnt { get; set; }
 
         [JsonProperty("recv_oct_details")]
         public RateDetails RecvOctDetails { get; set; }
 
         [JsonProperty("recv_oct")]
-        public int RecvOct { get; set; }
+        public long RecvOct { get; set; }
 
         [JsonProperty("send_oct_details")]
         public RateDetails SendOctDetails { get; set; }
 
         [JsonProperty("send_oct")]
-        public int SendOct { get; set; }
+        public long SendOct { get; set; }
 
         [JsonProperty("reductions_details")]
         public RateDetails ReductionsDetails { get; set; }
