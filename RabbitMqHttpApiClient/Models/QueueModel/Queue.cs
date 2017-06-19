@@ -39,7 +39,7 @@ namespace RabbitMqHttpApiClient.Models.QueueModel
         public string IdleSince { get; set; }
 
         [JsonProperty("consumer_utilisation")]
-        public double ConsumerUtilisation { get; set; }
+        public double? ConsumerUtilisation { get; set; }
 
         [JsonProperty("policy")]
         public string Policy { get; set; }
