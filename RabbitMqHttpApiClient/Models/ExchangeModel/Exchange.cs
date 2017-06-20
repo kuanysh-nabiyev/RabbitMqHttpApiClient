@@ -26,6 +26,7 @@ namespace RabbitMqHttpApiClient.Models.ExchangeModel
         [JsonProperty("internal")]
         public bool Internal { get; set; }
 
+        [JsonIgnore]
         [JsonProperty("arguments")]
         public Arguments Arguments { get; set; }
     }

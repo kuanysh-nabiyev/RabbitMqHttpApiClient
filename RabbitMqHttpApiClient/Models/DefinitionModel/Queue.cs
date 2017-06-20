@@ -17,6 +17,7 @@ namespace RabbitMqHttpApiClient.Models.DefinitionModel
         [JsonProperty("auto_delete")]
         public bool AutoDelete { get; set; }
 
+        [JsonIgnore]
         [JsonProperty("arguments")]
         public Arguments Arguments { get; set; }
     }

@@ -5,6 +5,7 @@ namespace RabbitMqHttpApiClient.Models.ConsumerModel
 {
     public class Consumer
     {
+        [JsonIgnore]
         [JsonProperty("arguments")]
         public Arguments Arguments { get; set; }
 

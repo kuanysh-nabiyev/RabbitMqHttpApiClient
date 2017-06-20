@@ -101,6 +101,7 @@ namespace RabbitMqHttpApiClient.Models.QueueModel
         [JsonProperty("node")]
         public string Node { get; set; }
 
+        [JsonIgnore]
         [JsonProperty("arguments")]
         public Arguments Arguments { get; set; }
 

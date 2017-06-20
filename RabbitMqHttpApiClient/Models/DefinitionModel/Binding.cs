@@ -20,6 +20,7 @@ namespace RabbitMqHttpApiClient.Models.DefinitionModel
         [JsonProperty("routing_key")]
         public string RoutingKey { get; set; }
 
+        [JsonIgnore]
         [JsonProperty("arguments")]
         public Arguments Arguments { get; set; }
 
