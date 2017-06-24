@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace RabbitMqHttpApiClient.Models.ExtensionModel
+namespace RabbitMqHttpApiClient.Models.SystemInfoModel
 {
     public class ManagementPluginExtension
     {

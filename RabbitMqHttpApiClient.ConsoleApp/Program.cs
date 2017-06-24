@@ -49,7 +49,10 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetAuthenticatedUserInfo().Result;
             //var result = rabbitMqApi.GetPermissions().Result;
             //var result = rabbitMqApi.GetPermissionByVhostAndUser("/", "guest").Result;
-            var result = rabbitMqApi.GetVirtualHostPermissions("/").Result;
+            //var result = rabbitMqApi.GetVirtualHostPermissions("/").Result;
+            //var result = rabbitMqApi.GetVirtualHostHealthcheck("/").Result;
+            //var result = rabbitMqApi.GetCurrentNodeHeathcheck().Result;
+            var result = rabbitMqApi.GetNodeHealthcheck("rabbit@KUANYSH-PC").Result;
         }
 
         private class RequestApprovedEvent

@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using RabbitMqHttpApiClient.Models.Common;
 
-namespace RabbitMqHttpApiClient.Models.OverviewModel
+namespace RabbitMqHttpApiClient.Models.SystemInfoModel.OverviewInfo
 {
     public class QueueTotals
     {

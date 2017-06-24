@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace RabbitMqHttpApiClient.Models.OverviewModel
+namespace RabbitMqHttpApiClient.Models.SystemInfoModel.OverviewInfo
 {
     public class Context
     {
