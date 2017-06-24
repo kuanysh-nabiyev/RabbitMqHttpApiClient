@@ -17,4 +17,12 @@ namespace RabbitMqHttpApiClient.Models.DefinitionModel
         public string Tags { get; set; }
     }
 
+    public class WhoAmI
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("tags")]
+        public string Tags { get; set; }
+    }
 }

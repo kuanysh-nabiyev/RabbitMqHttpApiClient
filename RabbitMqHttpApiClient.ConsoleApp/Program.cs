@@ -17,7 +17,7 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetQueueByVhostAndName("/", "isez").Result;
 
             //var result = rabbitMqApi.PublishMessage("/", "", "isez", new RequestApprovedEvent { RequestId = 12345}).Result;
-            var overview = rabbitMqApi.GetOverview().Result;
+            //var overview = rabbitMqApi.GetOverview().Result;
             //var nodes = rabbitMqApi.GetNodes().Result;
             //var node = rabbitMqApi.GetNode("rabbit@KUANYSH-PC", true, true).Result;
             //var extensions = rabbitMqApi.GetExtensions().Result;
@@ -42,6 +42,11 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetQueueMessages("/", "isez", 2).Result;
             //var result = rabbitMqApi.DeleteAllQueueMessages("/", "acts.executer.service_error").Result;
             //var result = rabbitMqApi.GetClusterName().Result;
+            //var result = rabbitMqApi.GetVirtualHostByName("/").Result;
+            //var result = rabbitMqApi.GetUsers().Result;
+            //var result = rabbitMqApi.GetUserByName("guest").Result;
+            //var result = rabbitMqApi.GetUserPermissions("guest").Result;
+            var result = rabbitMqApi.GetAuthenticatedUserInfo().Result;
         }
 
         private class RequestApprovedEvent
