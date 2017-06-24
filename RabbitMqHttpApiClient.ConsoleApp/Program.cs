@@ -46,7 +46,9 @@ namespace RabbitMqHttpApiClient.ConsoleApp
             //var result = rabbitMqApi.GetUsers().Result;
             //var result = rabbitMqApi.GetUserByName("guest").Result;
             //var result = rabbitMqApi.GetUserPermissions("guest").Result;
-            var result = rabbitMqApi.GetAuthenticatedUserInfo().Result;
+            //var result = rabbitMqApi.GetAuthenticatedUserInfo().Result;
+            //var result = rabbitMqApi.GetPermissions().Result;
+            var result = rabbitMqApi.GetPermissionByVhostAndUser("/", "guest").Result;
         }
 
         private class RequestApprovedEvent
