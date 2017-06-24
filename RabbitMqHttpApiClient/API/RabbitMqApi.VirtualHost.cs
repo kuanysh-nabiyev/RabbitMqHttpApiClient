@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using RabbitMqHttpApiClient.Models.VirtualHostModel;
+using RabbitMqHttpApiClient.Models.DefinitionModel;
 using RabbitMqHttpApiClient.Utils;
+using VirtualHost = RabbitMqHttpApiClient.Models.VirtualHostModel.VirtualHost;
 
 namespace RabbitMqHttpApiClient.API
 {
@@ -21,6 +22,14 @@ namespace RabbitMqHttpApiClient.API
         public async Task<VirtualHost> GetVirtualHostByName(string virtualHostName)
         {
             return await DoGetCall<VirtualHost>($"/api/vhosts/{virtualHostName.Encode()}");
+        }
+
+        /// <summary>
+        /// A list of all permissions for a given virtual host.
+        /// </summary>
+        public async Task<IEnumerable<Permission>> GetVirtualHostPermissions(string virtualHostName)
+        {
+            return await DoGetCall<IEnumerable<Permission>>($"/api/vhosts/{virtualHostName.Encode()}/permissions");
         }
     }
 }
