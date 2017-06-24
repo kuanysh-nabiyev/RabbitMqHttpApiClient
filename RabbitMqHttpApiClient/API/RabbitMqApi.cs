@@ -9,14 +9,14 @@ namespace RabbitMqHttpApiClient.API
 {
     public partial class RabbitMqApi
     {
-        private readonly HttpClient Http;
+        private readonly HttpClient _http;
 
         public RabbitMqApi(string rabbitMqUrl, string username, string password)
         {
             var basicAuthHeader = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{username}:{password}"));
-            Http = new HttpClient { Timeout = TimeSpan.FromMinutes(2) };
-            Http.BaseAddress = new Uri(rabbitMqUrl);
-            Http.DefaultRequestHeaders.Authorization =
+            _http = new HttpClient { Timeout = TimeSpan.FromMinutes(2) };
+            _http.BaseAddress = new Uri(rabbitMqUrl);
+            _http.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Basic", basicAuthHeader);
         }
 
@@ -27,7 +27,7 @@ namespace RabbitMqHttpApiClient.API
                 throw new ArgumentNullException(nameof(httpClient));
             }
 
-            Http = httpClient;
+            _http = httpClient;
         }
 
         private async Task<T> DoGetCall<T>(string path)
@@ -40,17 +40,17 @@ namespace RabbitMqHttpApiClient.API
             HttpResponseMessage response;
             if (method == HttpMethod.Get)
             {
-                response = await Http.GetAsync(path);
+                response = await _http.GetAsync(path);
             }
             else if (method == HttpMethod.Post)
             {
                 string messageBodyContent = JsonConvert.SerializeObject(body);
-                response = await Http.PostAsync(path, new StringContent(messageBodyContent));
+                response = await _http.PostAsync(path, new StringContent(messageBodyContent));
             }
             else if (method == HttpMethod.Put)
             {
                 string messageBodyContent = JsonConvert.SerializeObject(body);
-                response = await Http.PutAsync(path, new StringContent(messageBodyContent));
+                response = await _http.PutAsync(path, new StringContent(messageBodyContent));
             }
             else
             {
@@ -70,7 +70,7 @@ namespace RabbitMqHttpApiClient.API
 
         private async Task<bool> DoDeleteCall(string path)
         {
-            HttpResponseMessage response = await Http.DeleteAsync(path);
+            HttpResponseMessage response = await _http.DeleteAsync(path);
 
             if (response.IsSuccessStatusCode)
             {
